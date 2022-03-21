@@ -1,0 +1,256 @@
+
+/**
+ * The following class represents the pikachu style of our game.
+ * Each of the styles corresponding to the backgrounds, buttons, and text areas are determined here.
+ *  The CSS will allow us to change, if the client wishes, the style, theme of the game.
+ */
+
+/**
+ * This allows you to apply a background, here an image of pikachu, to the chosen background. This is the background used most of the time.
+ */
+ .background
+ {
+
+  -fx-background-image: url("/images/pika.jpeg");
+   -fx-text-fill: white;
+ }
+
+/*
+*This allows you to apply a background, here an image of pikachu,
+*to the altuallocation background.
+*/
+.background-field
+{
+  -fx-background-image: url("/images/pika-field-.jpg");
+  -fx-text-fill: white;
+}
+
+/*
+*This allows you to apply a background, here a color yellow,
+*to the menu bar background.
+*/
+.background-menu
+{
+  /*-fx-background-color: black;*/
+  -fx-background-color: yellow;
+  -fx-text-fill: white;
+}
+
+
+/*
+*This allows you to apply a background, here a color orange,
+*to the chosen background.
+ */
+.background-skill2
+{
+  -fx-background-color: orange;
+}
+
+
+/**
+ * The following funds are made available for the players' list section
+*/
+
+/**
+ * This allows you to apply a colour, here white, to the chosen background.
+ */
+.background-white
+{
+  -fx-background-image: url("/images/pika.jpeg");
+  -fx-text-fill: white;
+}
+
+/**
+ * This allows you to apply an image to the background player.
+ */
+.background-player1
+{
+  -fx-background-image: url("/images/background-player.jpg");
+  -fx-text-fill: black;
+}
+
+/**
+ * This allows you to apply an image to the background player.
+ */
+.background-player2
+{
+  -fx-background-image: url("/images/background-player.jpg");
+  -fx-text-fill: black;
+}
+
+/**
+ *This allows you to apply an image to the background player.
+ */
+.background-player3
+{
+  -fx-background-image: url("/images/background-player.jpg");
+  -fx-text-fill: black;
+}
+
+/**
+ * This allows you to apply an image to the background player.
+ */
+.background-player4
+{
+  -fx-background-image: url("/images/background-player.jpg");
+  -fx-text-fill: black;
+}
+
+/**
+ * This allows you to apply an image to the background player.
+ */
+.background-player5
+{
+  -fx-background-image: url("/images/background-player.jpg");
+  -fx-text-fill: black;
+}
+
+/**
+ * This allows you to apply an image to the background player.
+ */
+.background-player6
+{
+  -fx-background-image: url("/images/background-player.jpg");
+  -fx-text-fill: black;
+}
+
+/**
+ * The following buttons are all types that can be encountered in the game.
+ */
+
+/**
+ * The following green button is encountered throughout the game.
+ * When you move the mouse over it, it has a different opacity.
+ */
+.green-button
+{
+  -fx-background-color: yellow;
+  -fx-text-fill: black;
+}
+.green-button:hover
+{
+  -fx-text-fill: white;
+  -fx-background-color: rgba(255,255,0,0.75);
+}
+
+/**
+ *The following orange button is encountered throughout the game.
+ *When you move the mouse over it, it has a different opacity.
+ */
+.orange-button
+{
+  -fx-background-color: olivedrab;
+  -fx-text-fill: black;
+}
+.orange-button:hover
+{
+-fx-text-fill: white;
+-fx-background-color: rgba(107,142,35,0.75);
+}
+
+/**
+ * The following red button is encountered throughout the game.
+ * When you move the mouse over it, it has a different opacity.
+ */
+.red-button
+{
+-fx-background-color: darkred;
+-fx-text-fill: black;
+}
+.red-button:hover
+{
+  -fx-text-fill: white;
+  -fx-background-color: rgba(139,0,0,0.75);
+}
+
+
+/**
+* The following grey button is encountered throughout the game.
+* When you move the mouse over it, it has a different opacity.
+*/
+.grey-button
+{
+  -fx-background-color: gainsboro;
+  -fx-text-fill: black ;
+}
+.grey-button:hover
+{
+  -fx-text-fill: white ;
+  -fx-background-color: rgba(220,220,220,0.75);
+}
+
+/**
+ * The following grey buttons are those contained on the game menu bar.
+ * When you move the mouse over them, the opacity changes to show a difference.
+ */
+.grey-button-bar
+{
+  -fx-background-color: silver;
+}
+.grey-button-bar:hover
+{
+  -fx-text-fill: white ;
+  -fx-background-color: rgba(169,169,169,0.75);
+}
+
+/**
+* The following white button is encountered throughout the game.
+* When you move the mouse over it, it has a different opacity.
+*/
+.white-button
+{
+  -fx-background-color: white;
+}
+.white-button:hover
+{
+  -fx-text-fill: lightgrey ;
+  -fx-background-color: rgba(192,192,192,0.75);
+}
+
+/**
+ * This represents the text areas that are white.
+ */
+.white-textfield
+{
+  -fx-background-color: white;
+  -fx-text-fill: black;
+}
+
+/**
+ * The pink button in the help area is the only pink button that looks like this,
+ *  so it is given an ID to identify it.
+ */
+#pink-button
+{
+  -fx-background-color: olivedrab;
+}
+#pink-button:hover
+{
+  -fx-background-color: rgba(107,142,35,0.75);
+  -fx-text-fill: white;
+}
+
+
+/**
+ * The next buttons are those that ask players if they want
+ * to do business when a player decides not to buy.
+ */
+.yesPlayer
+{
+  -fx-background-color: yellow;
+}
+.yesPlayer:hover
+{
+  -fx-text-fill: darkgreen;
+  -fx-background-color: rgba(0,255,0,0.75);
+}
+
+.noPlayer
+{
+  -fx-background-color: yellow;
+}
+.noPlayer:hover
+{
+  -fx-text-fill: red;
+  -fx-background-color: rgba(255,0,0,0.75);
+}

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="background" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AuctionChoiceController">
+   <children>
+      <Label fx:id="title" alignment="CENTER" contentDisplay="CENTER" layoutX="127.0" layoutY="8.0" prefHeight="76.0" prefWidth="666.0" text="Voulez-vous participer à l'enchère pour l'achat de la carte " textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="firstPlayerLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="125.0" layoutY="120.0" prefHeight="50.0" prefWidth="250.0" text="Joueur 1 : " textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <HBox layoutX="550.0" layoutY="120.0" prefHeight="40.0" prefWidth="240.0">
+         <children>
+            <ToggleButton fx:id="yesPlayer1" layoutY="30.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="76.0" styleClass="yesPlayer" text="YES" textFill="#04ff00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="player1group" />
+               </toggleGroup>
+            </ToggleButton>
+            <Separator layoutX="43.0" layoutY="28.0" prefHeight="0.0" prefWidth="103.0" visible="false" />
+            <ToggleButton fx:id="noPlayer1" layoutX="82.0" layoutY="28.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="71.0" styleClass="noPlayer" text="NO" textFill="RED" toggleGroup="$player1group">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </ToggleButton>
+         </children>
+      </HBox>
+      <Label fx:id="secondPlayerLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="125.0" layoutY="180.0" prefHeight="50.0" prefWidth="250.0" text="Joueur 2 : " textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <HBox layoutX="550.0" layoutY="180.0" prefHeight="40.0" prefWidth="240.0">
+         <children>
+            <ToggleButton fx:id="yesPlayer2" layoutY="30.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="76.0" styleClass="yesPlayer" text="YES" textFill="#04ff00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="player2group" />
+               </toggleGroup>
+            </ToggleButton>
+            <Separator layoutX="43.0" layoutY="28.0" prefHeight="0.0" prefWidth="103.0" visible="false" />
+            <ToggleButton fx:id="noPlayer2" layoutX="82.0" layoutY="28.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="71.0" styleClass="noPlayer" text="NO" textFill="RED" toggleGroup="$player2group">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </ToggleButton>
+         </children>
+      </HBox>
+      <Label fx:id="thirdPlayerLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="125.0" layoutY="240.0" prefHeight="50.0" prefWidth="250.0" text="Joueur 3 : " textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <HBox layoutX="550.0" layoutY="240.0" prefHeight="40.0" prefWidth="240.0">
+         <children>
+            <ToggleButton fx:id="yesPlayer3" layoutY="30.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="76.0" styleClass="yesPlayer" text="YES" textFill="#04ff00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="player3group" />
+               </toggleGroup>
+            </ToggleButton>
+            <Separator layoutX="43.0" layoutY="28.0" prefHeight="0.0" prefWidth="103.0" visible="false" />
+            <ToggleButton fx:id="noPlayer3" layoutX="82.0" layoutY="28.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="71.0" styleClass="noPlayer" text="NO" textFill="RED" toggleGroup="$player3group">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </ToggleButton>
+         </children>
+      </HBox>
+      <Label fx:id="fourthPlayerLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="125.0" layoutY="295.0" prefHeight="50.0" prefWidth="250.0" text="Joueur 4 : " textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <HBox layoutX="550.0" layoutY="300.0" prefHeight="40.0" prefWidth="240.0">
+         <children>
+            <ToggleButton fx:id="yesPlayer4" layoutY="30.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="76.0" styleClass="yesPlayer" text="YES" textFill="#04ff00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="player4group" />
+               </toggleGroup>
+            </ToggleButton>
+            <Separator layoutX="43.0" layoutY="28.0" prefHeight="0.0" prefWidth="103.0" visible="false" />
+            <ToggleButton fx:id="noPlayer4" layoutX="82.0" layoutY="28.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="71.0" styleClass="noPlayer" text="NO" textFill="RED" toggleGroup="$player4group">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </ToggleButton>
+         </children>
+      </HBox>
+      <Label fx:id="fifthPlayerLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="125.0" layoutY="360.0" prefHeight="50.0" prefWidth="250.0" text="Joueur 5 : " textFill="WHITE" visible="false">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <HBox layoutX="550.0" layoutY="360.0" prefHeight="40.0" prefWidth="240.0">
+         <children>
+            <ToggleButton fx:id="yesPlayer5" layoutY="30.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="76.0" styleClass="yesPlayer" text="YES" textFill="#04ff00" visible="false">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="player5group" />
+               </toggleGroup>
+            </ToggleButton>
+            <Separator layoutX="43.0" layoutY="28.0" prefHeight="0.0" prefWidth="103.0" visible="false" />
+            <ToggleButton fx:id="noPlayer5" layoutX="82.0" layoutY="28.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="71.0" styleClass="noPlayer" text="NO" textFill="RED" toggleGroup="$player5group" visible="false">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </ToggleButton>
+         </children>
+      </HBox>
+      <Label fx:id="sixthPlayerLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="125.0" layoutY="420.0" prefHeight="50.0" prefWidth="250.0" text="Joueur 6 : " textFill="WHITE" visible="false">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <HBox layoutX="550.0" layoutY="420.0" prefHeight="40.0" prefWidth="240.0">
+         <children>
+            <ToggleButton fx:id="yesPlayer6" layoutY="30.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="76.0" styleClass="yesPlayer" text="YES" textFill="#04ff00" visible="false">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="player6group" />
+               </toggleGroup>
+            </ToggleButton>
+            <Separator layoutX="43.0" layoutY="28.0" prefHeight="0.0" prefWidth="103.0" visible="false" />
+            <ToggleButton fx:id="noPlayer6" layoutX="82.0" layoutY="28.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="71.0" styleClass="noPlayer" text="NO" textFill="RED" toggleGroup="$player6group" visible="false">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </ToggleButton>
+         </children>
+      </HBox>
+      <Button fx:id="nextBtn" layoutX="719.0" layoutY="510.0" mnemonicParsing="false" onAction="#nextBtnAction" prefHeight="63.0" prefWidth="145.0" styleClass="green-button" text="SUIVANT" textFill="WHITE">
+         <font>
+            <Font size="22.0" />
+         </font></Button>
+      <Label fx:id="avertissement" layoutX="102.0" layoutY="513.0" prefHeight="55.0" prefWidth="479.0" text="Veuillez tous donner une réponse" textFill="WHITE" visible="false">
+         <font>
+            <Font size="25.0" />
+         </font></Label>
+   </children>
+</AnchorPane>

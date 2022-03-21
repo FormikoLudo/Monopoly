@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="background" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BankLoanController">
+   <children>
+      <Button fx:id="back" layoutX="38.0" layoutY="485.0" mnemonicParsing="false" onAction="#backAction" prefHeight="63.0" prefWidth="220.0" styleClass="red-button" text="RETOUR" textFill="WHITE">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Button fx:id="takeLoan" disable="true" layoutX="643.0" layoutY="485.0" mnemonicParsing="false" onAction="#takeLoanAction" prefHeight="63.0" prefWidth="220.0" styleClass="green-button" text="Prendre le prêt" textFill="WHITE">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER" layoutX="147.0" layoutY="27.0" prefHeight="98.0" prefWidth="606.0" text="DEMANDE DE PRÊT A LA BANQUE" textFill="WHITE">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
+      <Label layoutX="127.0" layoutY="114.0" prefHeight="91.0" prefWidth="268.0" text="SOMME DEMANDEE :" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Button fx:id="calculate" layoutX="352.0" layoutY="485.0" mnemonicParsing="false" onAction="#calculateAction" prefHeight="63.0" prefWidth="220.0" styleClass="orange-button" text="Calcul" textFill="WHITE">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Label layoutX="128.0" layoutY="221.0" prefHeight="91.0" prefWidth="268.0" text="NOMBRE DE TOURS :" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="125.0" layoutY="329.0" prefHeight="91.0" prefWidth="268.0" text="SOMME A RENDRE   :" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="loanValue" alignment="CENTER" layoutX="539.0" layoutY="329.0" prefHeight="91.0" prefWidth="268.0" textFill="RED">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <TextField fx:id="request" layoutX="566.0" layoutY="139.0" prefHeight="47.0" prefWidth="214.0" promptText="Ex : 20000">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <Slider fx:id="nb_turns" blockIncrement="1.0" layoutX="568.0" layoutY="259.0" majorTickUnit="1.0" max="5.0" min="1.0" minorTickCount="0" prefHeight="38.0" prefWidth="216.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" />
+      <Label fx:id="done" alignment="CENTER" layoutX="342.0" layoutY="-18.0" prefHeight="91.0" prefWidth="216.0" text="PRÊT ACCORDE" textFill="#01ee11" visible="false">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

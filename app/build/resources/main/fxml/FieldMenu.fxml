@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="50.0" maxWidth="900.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FieldMenuController">
+   <children>
+      <ToolBar prefHeight="62.0" prefWidth="900.0" styleClass="background-menu" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <items>
+            <Button fx:id="rollTheDice" mnemonicParsing="false" onAction="#rollTheDiceAction" styleClass="grey-button-bar" text="DÉ">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="buy" disable="true" mnemonicParsing="false" onAction="#buyAction" styleClass="grey-button-bar" text="ACHETER">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="dontBuy" disable="true" mnemonicParsing="false" onAction="#dontBuyAction" styleClass="grey-button-bar" text="NE PAS ACHETER">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="loan" mnemonicParsing="false" onAction="#loanAction" styleClass="grey-button-bar" text="PRÊT">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="deal" mnemonicParsing="false" onAction="#dealAction" styleClass="grey-button-bar" text="DEALER">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="mortgage" disable="true" mnemonicParsing="false" onAction="#mortgageAction" styleClass="grey-button-bar" text="HYPOTHÈQUE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="build" disable="true" mnemonicParsing="false" onAction="#buildButtonAction" styleClass="grey-button-bar" text="CONSTRUIRE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="pay" disable="true" mnemonicParsing="false" onAction="#payAction" styleClass="red-button" text="PAYER" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="payTheFine" mnemonicParsing="false" onAction="#payTheFineAction" text="PAYER ET SORTIR" textAlignment="CENTER" textFill="RED" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="endOfRound" disable="true" mnemonicParsing="false" onAction="#endOfRoundAction" styleClass="red-button" text="FIN DE TOUR" textFill="#f8f8f8">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="properties" mnemonicParsing="false" onAction="#propertiesAction" prefHeight="21.0" prefWidth="90.0" styleClass="grey-button-bar" text="PROPRIÉTÉS">
+               <font>
+                  <Font size="10.0" />
+               </font></Button>
+            <Button fx:id="skills" mnemonicParsing="false" onAction="#skillsAction" prefHeight="21.0" prefWidth="60.0" styleClass="grey-button-bar" text="SKILLS">
+               <font>
+                  <Font size="10.0" />
+               </font></Button>
+         </items>
+      </ToolBar>
+   </children>
+</AnchorPane>

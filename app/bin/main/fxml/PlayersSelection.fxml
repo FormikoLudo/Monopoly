@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" styleClass="background" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PlayersSelectionController">
+   <children>
+      <BorderPane prefHeight="600.0" prefWidth="900.0">
+         <top>
+            <Label alignment="CENTER" prefHeight="54.0" prefWidth="500.0" styleClass="text" text="Combien de joueurs êtes-vous?" textAlignment="CENTER" textFill="WHITE" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="System Italic" size="24.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets top="30.0" />
+               </opaqueInsets>
+            </Label>
+         </top>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Slider fx:id="playerSelector" blockIncrement="1.0" layoutX="216.0" layoutY="1.0" majorTickUnit="1.0" max="6.0" maxWidth="-Infinity" min="4.0" minorTickCount="0" onMouseReleased="#onSliderChanged" prefHeight="101.0" prefWidth="373.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="4.0" AnchorPane.bottomAnchor="345.0" AnchorPane.leftAnchor="216.0" AnchorPane.rightAnchor="311.0" AnchorPane.topAnchor="1.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="130.0" />
+                     </padding>
+                  </Slider>
+                  <Label fx:id="firstPlayerLabel" alignment="CENTER" layoutX="141.0" layoutY="85.0" prefHeight="60.0" prefWidth="150.0" text="Joueur 1 : " textFill="WHITE">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="player1" layoutX="450.0" layoutY="100.0" prefHeight="35.0" prefWidth="220.0" styleClass="white-textfield" />
+                  <Label fx:id="secondPlayerLabel" alignment="CENTER" layoutX="141.0" layoutY="136.0" prefHeight="60.0" prefWidth="150.0" text="Joueur 2 : " textFill="WHITE">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="player2" layoutX="450.0" layoutY="151.0" prefHeight="35.0" prefWidth="220.0" styleClass="white-textfield" />
+                  <CheckBox fx:id="bot2" layoutX="808.0" layoutY="158.0" mnemonicParsing="false" onAction="#bot2Action" prefHeight="19.0" prefWidth="3.0" textAlignment="RIGHT" />
+                  <Label fx:id="thirdPlayerLabel" alignment="CENTER" layoutX="141.0" layoutY="184.0" prefHeight="60.0" prefWidth="150.0" text="Joueur 3 : " textFill="WHITE">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="player3" layoutX="450.0" layoutY="199.0" prefHeight="35.0" prefWidth="220.0" styleClass="white-textfield" />
+                  <CheckBox fx:id="bot3" layoutX="808.0" layoutY="208.0" mnemonicParsing="false" onAction="#bot3Action" prefHeight="19.0" prefWidth="3.0" textAlignment="RIGHT" />
+                  <Label fx:id="fourthPlayerLabel" alignment="CENTER" layoutX="141.0" layoutY="236.0" prefHeight="60.0" prefWidth="150.0" text="Joueur 4 : " textFill="WHITE">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="player4" layoutX="450.0" layoutY="251.0" prefHeight="35.0" prefWidth="220.0" styleClass="white-textfield" />
+                  <CheckBox fx:id="bot4" layoutX="808.0" layoutY="258.0" mnemonicParsing="false" onAction="#bot4Action" prefHeight="19.0" prefWidth="3.0" textAlignment="RIGHT" />
+                  <Label fx:id="fifthPlayerLabel" alignment="CENTER" layoutX="141.0" layoutY="287.0" prefHeight="60.0" prefWidth="150.0" text="Joueur 5 : " textFill="WHITE" visible="false">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="player5" layoutX="450.0" layoutY="302.0" prefHeight="35.0" prefWidth="220.0" visible="false" />
+                  <CheckBox fx:id="bot5" layoutX="808.0" layoutY="311.0" mnemonicParsing="false" onAction="#bot5Action" prefHeight="19.0" prefWidth="3.0" textAlignment="RIGHT" visible="false" />
+                  <Label fx:id="sixthPlayerLabel" alignment="CENTER" layoutX="141.0" layoutY="339.0" prefHeight="60.0" prefWidth="150.0" text="Joueur 6 : " textFill="WHITE" visible="false">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="player6" layoutX="451.0" layoutY="354.0" prefHeight="35.0" prefWidth="220.0" visible="false" />
+                  <CheckBox fx:id="bot6" layoutX="808.0" layoutY="361.0" mnemonicParsing="false" onAction="#bot6Action" prefHeight="19.0" prefWidth="3.0" textAlignment="RIGHT" visible="false" />
+                  <Label layoutX="799.0" layoutY="51.0" text="BOT" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </center>
+         <bottom>
+            <AnchorPane prefHeight="99.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane prefHeight="99.0" prefWidth="900.0">
+                     <children>
+                        <MenuButton fx:id="themeMenuButton" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="292.0" layoutY="53.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="145.0" styleClass="grey-button" text="Themes">
+                           <items>
+                              <MenuItem fx:id="classic" mnemonicParsing="false" onAction="#setClassic" text="Classique" />
+                              <MenuItem fx:id="dark" mnemonicParsing="false" onAction="#setDark" text="Sombre" />
+                              <MenuItem mnemonicParsing="false" onAction="#setPikachu" text="Pikachu" />
+                              <MenuItem mnemonicParsing="false" onAction="#setPrincess" text="Princesse" />
+                           </items>
+                        </MenuButton>
+                        <Button layoutX="485.0" layoutY="52.0" mnemonicParsing="false" onAction="#changeTheme" prefHeight="32.0" prefWidth="141.0" styleClass="grey-button" text="Changer" />
+                        <Button fx:id="backBtn" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#backBtnAction" prefHeight="50.0" prefWidth="150.0" styleClass="red-button" text="RETOUR" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="nextBtn" layoutX="725.0" layoutY="13.0" mnemonicParsing="false" onAction="#nextBtnAction" prefHeight="50.0" prefWidth="150.0" styleClass="green-button" text="SUIVANT" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Label fx:id="required" alignment="CENTER" contentDisplay="CENTER" layoutX="306.0" prefHeight="52.0" prefWidth="313.0" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>

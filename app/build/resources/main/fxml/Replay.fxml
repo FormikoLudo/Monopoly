@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="background" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ReplayController">
+   <children>
+      <Button fx:id="newPlayers" layoutX="273.0" layoutY="127.0" mnemonicParsing="false" onAction="#newPlayersAction" prefHeight="110.0" prefWidth="355.0" styleClass="white-button" text="Nouveaux joueurs" />
+      <Button fx:id="samePlayers" layoutX="273.0" layoutY="327.0" mnemonicParsing="false" onAction="#samePlayersAction" prefHeight="110.0" prefWidth="355.0" styleClass="white-button" text="Memes joueurs" />
+   </children>
+</AnchorPane>

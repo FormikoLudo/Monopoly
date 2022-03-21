@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="actualLocationPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="204.0" styleClass="background-field" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ActualLocationController">
+   <Button fx:id="outOfJailCard" layoutX="13.0" layoutY="496.0" mnemonicParsing="false" onAction="#outOfJailCardAction" prefHeight="24.0" prefWidth="178.0" styleClass="red-button" stylesheets="@../style/classic.css" text="Utiliser carte sortie de prison" visible="false">
+      <font>
+         <Font size="9.0" />
+      </font>
+   </Button>
+<Group xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Group fx:id="feieldElementDisplay">
+         <children>
+            <VBox fx:id="content" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                     <StackPane prefHeight="150.0" prefWidth="200.0">
+                        <children>
+                        <Rectangle fx:id="color" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="20.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+                           <HBox fx:id="buildings" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+                              <children>
+                                 <Rectangle fx:id="firstHouse" arcHeight="5.0" arcWidth="5.0" fill="#bec0c13d" height="17.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
+                                 <Rectangle fx:id="secondHouse" arcHeight="5.0" arcWidth="5.0" fill="#bec0c13d" height="17.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
+                                 <Rectangle fx:id="thirdHouse" arcHeight="5.0" arcWidth="5.0" fill="#bec0c13d" height="17.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
+                                 <Rectangle fx:id="fourthHouse" arcHeight="5.0" arcWidth="5.0" fill="#bec0c13d" height="17.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
+                              </children>
+                              <padding>
+                                 <Insets left="10.0" />
+                              </padding>
+                           </HBox>
+                        </children>
+                     </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <Rectangle fx:id="card" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="211.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" width="200.0" />
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <StackPane fx:id="cardType" layoutX="9.0" layoutY="9.0" prefHeight="33.0" prefWidth="33.0">
+                                 <children>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                          <ImageView fx:id="communityChestView" fitHeight="39.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                             <image>
+                                                <Image url="@../images/communityChest.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="trainStationView" fitHeight="39.0" fitWidth="46.0" layoutX="-4.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                             <image>
+                                                <Image url="@../images/trainStation.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="waterDistributionView" fitHeight="36.0" fitWidth="42.0" layoutX="-2.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                             <image>
+                                                <Image url="@../images/waterDistribution.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="electricityDistributionView" fitHeight="36.0" fitWidth="42.0" layoutX="1.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                             <image>
+                                                <Image url="@../images/electricityDistribution.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="luxuryTaxeView" fitHeight="41.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                             <image>
+                                                <Image url="@../images/LuxuryTaxe.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="goToJailView" fitHeight="42.0" fitWidth="44.0" layoutX="1.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                             <image>
+                                                <Image url="@../images/goToJail.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="jailView" fitHeight="42.0" fitWidth="54.0" pickOnBounds="true" visible="false">
+                                             <image>
+                                                <Image url="@../images/jail.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="freeParkingView" fitHeight="41.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                             <image>
+                                                <Image url="@../images/parking.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="chanceView" fitHeight="36.0" fitWidth="44.0" pickOnBounds="true" visible="false">
+                                             <image>
+                                                <Image url="@../images/chance.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="startView" fitHeight="19.0" fitWidth="46.0" layoutX="-2.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                             <image>
+                                                <Image url="@../images/startView.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </StackPane>
+                              <StackPane fx:id="pawn" layoutX="152.0" layoutY="14.0" prefHeight="33.0" prefWidth="41.0">
+                                 <children>
+                                    <ImageView fx:id="pawn1" fitHeight="38.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                       <image>
+                                          <Image url="@../images/pawn1.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fx:id="pawn2" fitHeight="38.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                       <image>
+                                          <Image url="@../images/pawn2.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fx:id="pawn3" fitHeight="38.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                       <image>
+                                          <Image url="@../images/pawn3.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fx:id="pawn4" fitHeight="38.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                       <image>
+                                          <Image url="@../images/pawn4.png" />
+                                       </image>
+                                    </ImageView>
+                                       <ImageView fx:id="pawn5" fitHeight="38.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                          <image>
+                                             <Image url="@../images/pawn5.png" />
+                                          </image>
+                                       </ImageView>
+                                       <ImageView fx:id="pawn6" fitHeight="38.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                          <image>
+                                             <Image url="@../images/pawn6.png" />
+                                          </image>
+                                       </ImageView>
+                                 </children>
+                              </StackPane>
+                              <Label fx:id="cardName" alignment="CENTER" layoutX="38.0" layoutY="6.0" prefHeight="53.0" prefWidth="127.0" text="Nom" textAlignment="CENTER" wrapText="true" />
+
+                              <VBox layoutX="7.0" layoutY="61.0" prefHeight="147.0" prefWidth="193.0">
+                                 <children>
+                                       <Label fx:id="lineZero" text="Loyer actuel  :" wrapText="true" />
+                                    <Label fx:id="firstLine" text="Loyer de base  :" wrapText="true" />
+                                    <Label fx:id="secondLine" text="Une gare :" wrapText="true" />
+                                    <AnchorPane prefHeight="16.0" prefWidth="83.0">
+                                       <children>
+                                          <Label fx:id="thirdLine" prefHeight="16.0" prefWidth="193.0" text="Deux gares :" wrapText="true" />
+                                       </children>
+                                    </AnchorPane>
+                                    <Label fx:id="fourthLine" text="Trois gare :" wrapText="true" />
+                                    <Label fx:id="fifthLine" text="Quatre gares :" wrapText="true" />
+                                    <Label fx:id="sixthLine" text="Hôtel :" wrapText="true" />
+                                       <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                          <children>
+                                             <Label fx:id="seventhLine" text="Prix :" wrapText="true" />
+                                             <ImageView fx:id="waterEquiped" fitHeight="33.0" fitWidth="32.0" layoutX="157.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                                <image>
+                                                   <Image url="@../images/water_equiped.png" />
+                                                </image>
+                                             </ImageView>
+                                             <ImageView fx:id="electricityEquiped" fitHeight="38.0" fitWidth="33.0" layoutX="121.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                                <image>
+                                                   <Image url="@../images/electricity_equiped.png" />
+                                                </image>
+                                             </ImageView>
+                                          </children>
+                                       </AnchorPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </StackPane>
+               </children>
+            </VBox>
+         </children>
+      </Group>
+   </children>
+</Group>
+   <Button fx:id="equipBtn" layoutX="28.0" layoutY="418.0" mnemonicParsing="false" onAction="#equipBtnAction" prefHeight="24.0" prefWidth="148.0" styleClass="white-button" text="Equiper" />
+
+</AnchorPane>
