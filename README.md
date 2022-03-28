@@ -1,6 +1,5 @@
 # Monopoly
 ---
-# Présentation
 Le Monopoly est un jeu de plateau qui se joue à plusieurs.
 Ce jeu consiste en un plateau de cases représentant des domaines pouvant être acheté par les joueur.
 Le but du jeu consiste à acheter le plus de propriétés possible afin de faire payer des loyer aux autres joueurs  
