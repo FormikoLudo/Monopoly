@@ -2,14 +2,14 @@
 ---
 Le Monopoly est un jeu de plateau qui se joue à plusieurs.
 Ce jeu consiste en un plateau de cases représentant des domaines pouvant être acheté par les joueur.
-Le but du jeu consiste à acheter le plus de propriétés possible afin de faire payer des loyer aux autres joueurs lorsque il passent dessus.
+Le but du jeu consiste à acheter le plus de propriétés possible afin de faire payer des loyer aux autres joueurs lorsqu'ils passent dessus.
 ---
 # Fonctionnalités implémentées
 * Cases de Taxes
 * Case Prison
 * Case Allez en prison
 * Case Roue de la Fortune
-* Cases représentant des services publiques dont le loyer varie en fonction du résultat des dès
+* Cases représentant des services publiques dont le loyer varie en fonction du résultat des dés
 * Possibilité d'équiper un domaine de contrats d'eau ou d'électricité afin d'augmenter le loyer
 * Possibilité de construire sur un domaine à partir du moment où l'on possède tous les domaines de la même couleur
 * Prêts
