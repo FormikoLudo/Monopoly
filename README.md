@@ -33,4 +33,9 @@ Le but du jeu consiste à acheter le plus de propriétés possible afin de faire
 ---
 # Instructions d'exécution
 Sur une machine disposant d'un JDK installé, se placer à la racine du projet et exécuter ```./gradlew run```
+# Contributors
++ HADDACHE MAYA
++ HAMMOUCHE AIMEN
++ DERVISHI SEVI
++ MORON USON GUILLERMO
 
