@@ -1,7 +1,0 @@
-number,message,location,relative
-1,RENDEZ VOUS GARE DE LYON,15,false
-2,RENDEZ VOUS GARE MONTPARNASSE,5,false
-3,AVANCEZ DE 3 CASES,3,true
-4,RECULEZ DE 3 CASES,-3,true
-5,RECULEZ DE 8 CASES,-8,true
-6,AVANCEZ DE 4 CASES,4,true
