@@ -1,4 +1,4 @@
-package game;
+package fr.formiko.model.game;
 
 import field.Property;
 
@@ -13,7 +13,7 @@ public class Mortgage {
     /**
      * The player who wants to mortgage properties
      */
-    private Player player;
+    private game.Player player;
 
     /**
      * Instantiates a new Mortgage object with the
@@ -21,7 +21,7 @@ public class Mortgage {
      * @param player the new player who wants to mortgage
      * properties
      */
-    public Mortgage(Player player){
+    public Mortgage(game.Player player){
 	this.player = player;
     }
 
@@ -69,7 +69,7 @@ public class Mortgage {
     }
 
     /**
-     * Puts inside a String object the unmortgage desciption of the 
+     * Puts inside a String object the unmortgage desciption of the
      * given property
      * @param p the property to get the description from
      * @return the unmortgage description of the property in a String

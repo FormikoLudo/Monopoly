@@ -1,5 +1,5 @@
-package field;
-import game.Player;
+package fr.formiko.model.field;
+import fr.formiko.model.game.Player;
 public abstract class Card
 {
         private String content;

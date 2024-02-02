@@ -1,9 +1,9 @@
-package field;
+package fr.formiko.model.field;
 
 import java.util.ArrayList;
 
 /**
- * This class manages the construction of houses and hotel 
+ * This class manages the construction of houses and hotel
  * on a domain.
  */
 public class ConstructionFactory {
@@ -11,25 +11,25 @@ public class ConstructionFactory {
     /**
      * The list of houses of the associated domain
      */
-    private ArrayList<House> houses;
+    private ArrayList<field.House> houses;
 
     /**
      * The hotel of the associated domain
      */
-    private Hotel hotel;
+    private field.Hotel hotel;
 
     /**
      * The domain managed by this class
      */
-    private Domain domain;
+    private field.Domain domain;
 
     /**
-     * The fixed price of build for houses and hotel of the 
+     * The fixed price of build for houses and hotel of the
      * associated domain
      */
     private final int buildPrice;
 
-    public ConstructionFactory(Domain domain, int buildPrice){
+    public ConstructionFactory(field.Domain domain, int buildPrice){
 	houses = new ArrayList<>();
 	hotel = null;
 	this.domain = domain;
@@ -53,30 +53,30 @@ public class ConstructionFactory {
 	}
 	return false;
     }
-    
+
     /**
      * Builds a house on the associated domain if possible.
      * The selling price of a house is half its build price
      */
     private void buildHouse(){
 	domain.getOwner().pay(buildPrice);
-	houses.add(new House(buildPrice, buildPrice / 2));
+	houses.add(new field.House(buildPrice, buildPrice / 2));
     }
 
     /**
      * Builds a hotel on the associated domain if possible.
      * The selling price of a hotel is half its build price
-     * and the bonus rent for the construction of a hotel is 
+     * and the bonus rent for the construction of a hotel is
      * 100 * the color of its district (so higher the district,
      * higher the bonus rent)
      */
     private void buildHotel(){
 	domain.getOwner().pay(buildPrice);
-	hotel = new Hotel(buildPrice, buildPrice / 2, 100 * domain.getDistrict().getColor());
+	hotel = new field.Hotel(buildPrice, buildPrice / 2, 100 * domain.getDistrict().getColor());
     }
 
     /**
-     * Checks if building a house is possible : 
+     * Checks if building a house is possible :
      * - The owner of the associated domain has to have enough money
      * - The owner has to own the entire district of the associated
      * domain
@@ -93,7 +93,7 @@ public class ConstructionFactory {
     }
 
     /**
-     * Checks if it is possible to build a hotel on the associated domain : 
+     * Checks if it is possible to build a hotel on the associated domain :
      * - the limit of hotel per domain is one
      * - the owner of the domain has to have enough money to build it
      * - there has to be 4 houses in each domain of the district ( hotel uniformity rule)
@@ -133,7 +133,7 @@ public class ConstructionFactory {
      * Gets the hotel of this construction factory
      * @return the hotel of this construction factory
      */
-    public Hotel getHotel(){
+    public field.Hotel getHotel(){
 	return hotel;
     }
 
@@ -163,12 +163,12 @@ public class ConstructionFactory {
     /**
      * Destroys each building in this factory and compoutes the total
      * value of the destruction
-     * @return the total value of the destruction of each building in this 
+     * @return the total value of the destruction of each building in this
      * factory
      */
     public int destroyBuildings(){
 	int total = 0;
-	for(House house : houses){
+	for(field.House house : houses){
 	    total += house.getSellingPrice();
 	}
 	//empty the house list (by creating a new instance)

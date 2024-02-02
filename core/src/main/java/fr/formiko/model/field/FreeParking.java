@@ -1,4 +1,4 @@
-package field;
+package fr.formiko.model.field;
 
 /**
  * The free parking class represents a case on the field which, when we are on it,

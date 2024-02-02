@@ -1,4 +1,4 @@
-package field;
+package fr.formiko.model.field;
 
 /**
  * This class represents the jail and a case which a player to go to jail.

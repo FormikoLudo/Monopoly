@@ -1,6 +1,7 @@
-package field;
+package fr.formiko.model.field;
 
-import game.Player;
+
+import fr.formiko.model.game.Player;
 
 import java.lang.Math;
 

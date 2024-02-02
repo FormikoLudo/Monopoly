@@ -1,4 +1,4 @@
-package field;
+package fr.formiko.model.field;
 /**
  * This interface represents a service provider.
  */

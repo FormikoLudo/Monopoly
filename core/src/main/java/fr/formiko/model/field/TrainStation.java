@@ -1,4 +1,4 @@
-package field;
+package fr.formiko.model.field;
 
 /**
  * This class represents Train Station case which is a specific type of companies

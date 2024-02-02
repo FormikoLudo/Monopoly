@@ -1,4 +1,4 @@
-package field;
+package fr.formiko.model.field;
 import java.util.ArrayList;
 import java.lang.Math;
 import utils.CSVReader;
@@ -26,7 +26,7 @@ public class FortuneWheel extends FieldElement
                 moveCardReader.readData();
                 for (int i = 1 ; i < moneyCardReader.getData().size();i++)
                 {
-                        this.addCard(new MoneyCard(moneyCardReader.getData().get(i)[1],Integer.parseInt(moneyCardReader.getData().get(i)[2])));
+                        this.addCard(new field.MoneyCard(moneyCardReader.getData().get(i)[1],Integer.parseInt(moneyCardReader.getData().get(i)[2])));
                 }
                 for (int j = 1 ; j < moveCardReader.getData().size();j++)
                 {

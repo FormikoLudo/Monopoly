@@ -1,12 +1,12 @@
-package game;
+package fr.formiko.model.game;
 
-public class FiscalParadiseSkill extends Skill{
+public class FiscalParadiseSkill extends game.Skill {
 
     /**
      * The tax reduction of this skill
      */
     private double taxReduction = 0.0;
-    
+
     /**
      * Indicates if this skill dodges jail
      */
@@ -89,7 +89,7 @@ public class FiscalParadiseSkill extends Skill{
 	    setDodgeJail(true);
 	}
     }
-    
+
     public String toString(){
 	return "Paradis Fiscal";
     }

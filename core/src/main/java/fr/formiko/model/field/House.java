@@ -1,4 +1,4 @@
-package field;
+package fr.formiko.model.field;
 
 /**
  * This object represents a House. A house is a building with

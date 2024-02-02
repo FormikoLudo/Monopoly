@@ -1,4 +1,4 @@
-package field;
+package fr.formiko.model.field;
 
 /**
  * Base class for buildings
@@ -14,7 +14,7 @@ public abstract class Building {
     private final int buildPrice;
 
     /**
-     * Instantiates a new Building object with the 
+     * Instantiates a new Building object with the
      * given build price
      * @param buildPrice the build price of this Building
      * object

@@ -1,4 +1,4 @@
-package field;
+package fr.formiko.model.field;
 
 /**
  * This class represents the dices of the game

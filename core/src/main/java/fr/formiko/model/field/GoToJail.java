@@ -1,4 +1,4 @@
-package field;
+package fr.formiko.model.field;
 
 /**
  * The go to prison class allows you to create a square that will transport the player, when he finds himself on it,

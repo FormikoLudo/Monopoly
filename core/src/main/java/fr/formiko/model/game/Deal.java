@@ -1,4 +1,4 @@
-package game;
+package fr.formiko.model.game;
 
 
 import field.Property;
@@ -11,12 +11,12 @@ public class Deal
   /**
    * The player who wants to buy the property.
    */
-  Player buyer;
+  game.Player buyer;
 
   /**
    * The owner of the property that the buyer wants to buy.
    */
-  Player seller;
+  game.Player seller;
 
   /**
    * The highest proposition made by the buyer.
@@ -38,7 +38,7 @@ public class Deal
    * @param buyer  The buyer of the property.
    * @param seller The owner of the property.
    */
-  public Deal(Player buyer, Player seller)
+  public Deal(game.Player buyer, game.Player seller)
   {
     this.buyer = buyer;
     this.seller = seller;
@@ -68,7 +68,7 @@ public class Deal
    * Getter of seller.
    * @return The seller.
    */
-  public Player getSeller()
+  public game.Player getSeller()
   {
     return this.seller;
   }
@@ -77,7 +77,7 @@ public class Deal
    * Getter of buyer.
    * @return The buyer.
    */
-  public Player getBuyer()
+  public game.Player getBuyer()
   {
     return this.buyer;
   }

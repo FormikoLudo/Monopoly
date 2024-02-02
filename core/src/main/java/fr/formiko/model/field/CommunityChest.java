@@ -1,4 +1,4 @@
-package field;
+package fr.formiko.model.field;
 
 /**
 * The community box is an element of the board that gives rhythm to the monopoly
@@ -6,10 +6,10 @@ package field;
 * associated with the card that will be carried out. This can be a gain of money,
 * but also a gain of the right to leave the prison.
 */
-public class CommunityChest extends FieldElement{
+public class CommunityChest extends FieldElement {
 
     /**
-     * This table shows the different cards available in the community 
+     * This table shows the different cards available in the community
      * box.
      */
     private String[] cards;
@@ -22,7 +22,7 @@ public class CommunityChest extends FieldElement{
     {
 	super(location,"Community Chest");
 	this.cards= new String[16];
-	
+
 	//The following lines indicate the text associated with each of the cards of the community fund.
 	this.cards[0] = "remboursement des impôts sur le revenu, recevez 20$";
 	this.cards[1] = "erreur de la banque, recevez 200$";

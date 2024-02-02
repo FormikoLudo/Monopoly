@@ -1,4 +1,4 @@
-package game;
+package fr.formiko.model.game;
 
 /**
  * This class represents a basic Skill object, used to improve the capacities of a Player.
@@ -43,7 +43,7 @@ public abstract class Skill {
      * Increases the level of upgrade of this Skill object
      * if the Skill is not fully upgraded and the given player
      * has enough money to do so
-     * @param player the player that would like to increase the 
+     * @param player the player that would like to increase the
      * level of this Skill object
      * @return true if the level of this Skill object increased,
      * false otherwise
@@ -66,13 +66,13 @@ public abstract class Skill {
 
     /**
      * Checks if the skill is unlocked
-     * @return true if the current level of this skill is superior to 0, 
+     * @return true if the current level of this skill is superior to 0,
      * false otherwise
      */
     public boolean isSkillUnlocked(){
 	return getCurrentLevel() > 0;
     }
-    
+
     /**
      * Gets the identifier of this Skill object
      * @return the identifier of this Skill object
@@ -88,7 +88,7 @@ public abstract class Skill {
     public int getTOTALLEVELS(){
 	return TOTAL_LEVELS;
     }
-    
+
     /**
      * Gets the current level of this Skill object
      * @return the current level of this Skill object
@@ -115,4 +115,4 @@ public abstract class Skill {
     }
 }
 
-    
+

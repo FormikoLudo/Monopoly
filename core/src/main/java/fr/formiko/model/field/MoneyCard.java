@@ -1,5 +1,5 @@
-package field;
-import game.Player;
+package fr.formiko.model.field;
+import fr.formiko.model.game.Player;
 /**
  * This class represents the cards that deal with player's money.
  */
@@ -10,7 +10,7 @@ public class MoneyCard extends Card
          * if the value is negative the player wins money, if not the player loses money
          */
         private int value;
-        
+
         public int getValue()
         {
                 return this.value;

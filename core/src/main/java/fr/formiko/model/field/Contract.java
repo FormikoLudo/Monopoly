@@ -1,5 +1,7 @@
-package field;
-import game.Player;
+package fr.formiko.model.field;
+
+import fr.formiko.model.game.Player;
+
 /**
  * This class represents a Contract which is used to equip Domain objects in order to improve de rent.
  */

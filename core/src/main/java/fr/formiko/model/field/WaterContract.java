@@ -1,5 +1,5 @@
 
-package field;
+package fr.formiko.model.field;
 /**
 * This enumeration repesents the contracts of electricicy you can choose for a Domain.
 */

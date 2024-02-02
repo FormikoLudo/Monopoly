@@ -1,4 +1,4 @@
-package field;
+package fr.formiko.model.field;
 
 /**
  * A FieldElement represents the objects that are on the board. It is a base class for more

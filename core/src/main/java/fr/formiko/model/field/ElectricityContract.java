@@ -1,4 +1,4 @@
-package field;
+package fr.formiko.model.field;
 /**
  * This class repesents the contracts of electricicy that can be installed for a Domain.
  */

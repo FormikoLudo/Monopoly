@@ -1,4 +1,4 @@
-package field;
+package fr.formiko.model.field;
 
 /**
  * The deluxe tax class represents a case on the field that

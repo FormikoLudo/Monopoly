@@ -1,9 +1,9 @@
-package field;
+package fr.formiko.model.field;
 
 /**
  * A Hotel object is a House object with a bonus rent
  */
-public class Hotel extends House {
+public class Hotel extends field.House {
 
     /**
      * The bonus rent of this Hotel
@@ -11,7 +11,7 @@ public class Hotel extends House {
     private int bonusRent;
 
     /**
-     * Instantiates a new Hotel object with the given build price, selling price and 
+     * Instantiates a new Hotel object with the given build price, selling price and
      * bonus rent
      * @param buildPrice the build price of this Hotel object
      * @param sellingPrice the selling price of this Hotel object

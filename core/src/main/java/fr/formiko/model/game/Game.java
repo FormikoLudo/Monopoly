@@ -1,4 +1,4 @@
-package game;
+package fr.formiko.model.game;
 
 import field.Field;
 import field.FieldElement;
@@ -18,7 +18,7 @@ public class Game
   /**
   * The players in this game
   */
-  private Player[] players;
+  private game.Player[] players;
 
   /**
   * Number of doubles of a player in row
@@ -68,7 +68,7 @@ public FieldElement getActualLocation()
  * @param field the field where this game is taking place
  * @param nb_dices The number of dices of the game.
  */
-    public Game(Player[] players, int nb_dices)
+    public Game(game.Player[] players, int nb_dices)
     {
 	dice = new Dice(nb_dices);
 	this.field = new Field(dice);
@@ -81,7 +81,7 @@ public FieldElement getActualLocation()
      * Gets the players of this game
      * @return the array of players in this game
      */
-    public Player[] getPlayers() {
+    public game.Player[] getPlayers() {
 	return (this.players);
     }
 
@@ -97,7 +97,7 @@ public FieldElement getActualLocation()
      * Getter of the current player
      * @return an instance of the current player
      */
-    public Player getCurrentPlayer(){
+    public game.Player getCurrentPlayer(){
 	return players[current];
     }
 
@@ -169,7 +169,7 @@ public FieldElement getActualLocation()
      */
     public boolean someoneOwnsTheProperty()
     {
-      Player owner =  ((Property)getActualLocation()).getOwner();
+      game.Player owner =  ((Property)getActualLocation()).getOwner();
       return (owner != null && owner != this.players[current]);
     }
 
@@ -178,7 +178,7 @@ public FieldElement getActualLocation()
      * Gets the winner of the game.
      * @return The winner of the game.
      */
-    public Player getGameWinner()
+    public game.Player getGameWinner()
     {
       for(int i = 0; i < players.length; i++)
       {

@@ -1,4 +1,4 @@
-package field;
+package fr.formiko.model.field;
 
 import java.util.ArrayList;
 
@@ -10,13 +10,13 @@ public class District {
     /**
      * The list of domains this district contains
      */
-    private ArrayList<Domain> domains;
+    private ArrayList<field.Domain> domains;
 
     /**
      * ID attribution
      */
     private static int idNum = 1;
-    
+
     /**
      * The color of this district, serves as an id
      */
@@ -34,7 +34,7 @@ public class District {
      * Getter for the list of domains in this district
      * @return the list of domains in this district
      */
-    public ArrayList<Domain> getDomains(){
+    public ArrayList<field.Domain> getDomains(){
 	return domains;
     }
 
@@ -44,12 +44,12 @@ public class District {
     public int getColor(){
 	return color;
     }
-    
+
     /**
      * Adds the given domain to the list of domains in this district
      * @param domain the domain to add to the list of domains in this district
      */
-    public void addDomain(Domain domain){
+    public void addDomain(field.Domain domain){
 	if(!domains.contains(domain)) {
 
 	    //adds the domain to this district
@@ -65,13 +65,13 @@ public class District {
      * @param domain the domain on which its owner would like to build
      * @return true if the construction is uniform, false otherwise
      */
-    public boolean isConstructionUniform(Domain domain){
+    public boolean isConstructionUniform(field.Domain domain){
 
 	//the number of houses on the given domain
 	int nbrOfHouses = domain.getConstructionFactory().getNumberOfHouses();
 
 	//for each domain in the district
-	for(Domain d : domains){
+	for(field.Domain d : domains){
 
 	    //if the number of houses on the domain is inferior to the number
 	    //of houses on the given domain
@@ -87,15 +87,15 @@ public class District {
     }
 
     /**
-     * Checks if the uniformity rule for hotel is respected : 
-     * - to build a hotel, there has to be 4 houses in each domain of the 
+     * Checks if the uniformity rule for hotel is respected :
+     * - to build a hotel, there has to be 4 houses in each domain of the
      *   district
      * @return true if the rule is respected, false otherwise
      */
     public boolean hotelUniformity(){
 
 	//for each domain in this district
-	for(Domain d: domains){
+	for(field.Domain d: domains){
 
 	    //if the number of houses of the domain is not 4
 	    if(d.getConstructionFactory().getNumberOfHouses() != 4){
@@ -117,7 +117,7 @@ public class District {
      */
     public int destroyBuildings(){
 	int total = 0;
-	for(Domain domain : domains){
+	for(field.Domain domain : domains){
 	    total += domain.getConstructionFactory().destroyBuildings();
 	}
 	return total;
@@ -128,7 +128,7 @@ public class District {
      * @return true if the district is empty, false otherwise
      */
     public boolean isEmpty(){
-	for(Domain domain : domains){
+	for(field.Domain domain : domains){
 	    if(!domain.getConstructionFactory().isEmpty()){
 		return false;
 	    }

@@ -1,5 +1,4 @@
-package field;
-import game.*;
+package fr.formiko.model.field;
 /**
  * A Pawn is the representation of the player on the board, it indicates at which position
  * the player is.

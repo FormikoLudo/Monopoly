@@ -1,11 +1,12 @@
-package utils;
+package fr.formiko.utils;
+
+import fr.formiko.model.field.Domain;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.io.FileReader;
-import field.Domain;
 import java.lang.Integer;
 
 public class CSVReader{
@@ -66,13 +67,13 @@ public class CSVReader{
 	//for every entry in the csv file (except the titles entry)
 	for(int i = 1; i < data.size(); i++){
 	    String[] value = data.get(i);
-	    
+
 	    //adds a new domain from the csv file to the data array
 	    domainsList.add(new Domain(value[1], Integer.parseInt(value[0]),Integer.parseInt(value[2]),Integer.parseInt(value[3]),Integer.parseInt(value[4]),Integer.parseInt(value[5])));
 	}
 	return domainsList;
     }
-    
+
     public ArrayList<String []> getData()
     {
             return data;

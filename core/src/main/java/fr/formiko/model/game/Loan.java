@@ -1,4 +1,4 @@
-package game;
+package fr.formiko.model.game;
 
 
 /**

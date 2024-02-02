@@ -1,4 +1,4 @@
-package field;
+package fr.formiko.model.field;
 
 /**
  * This class represents the public services such as electricity and

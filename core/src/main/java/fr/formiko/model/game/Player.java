@@ -1,22 +1,8 @@
-package game;
+package fr.formiko.model.game;
 
-import field.Pawn;
-import field.Property;
-import field.Domain;
-import field.District;
-import field.FieldElement;
-import field.PublicService;
-import field.TrainStation;
-import field.CommunityChest;
-import field.Field;
-import field.Start;
-import field.Contract;
-import field.ElectricityContract;
-import field.WaterContract;
-import field.ElectricityProvider;
-import field.WaterProvider;
 
-import java.util.Random;
+import fr.formiko.model.field.*;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -81,7 +67,7 @@ public class Player
     /**
      * The set of skills of this player
      */
-    private HashMap<Integer,Skill> skillsMap;
+    private HashMap<Integer, Skill> skillsMap;
 
     /**
      * This method constructs a player.
@@ -657,7 +643,7 @@ public class Player
        {
          return false;
        }
-       
+
        for (Property owned : this.properties)
        {
          if (owned instanceof Domain)

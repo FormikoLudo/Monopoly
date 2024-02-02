@@ -1,4 +1,4 @@
-package field;
+package fr.formiko.model.field;
 
 public class Start extends FieldElement {
 
