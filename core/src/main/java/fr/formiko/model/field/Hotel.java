@@ -3,7 +3,7 @@ package fr.formiko.model.field;
 /**
  * A Hotel object is a House object with a bonus rent
  */
-public class Hotel extends field.House {
+public class Hotel extends House {
 
     /**
      * The bonus rent of this Hotel

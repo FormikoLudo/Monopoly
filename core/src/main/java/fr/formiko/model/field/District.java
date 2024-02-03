@@ -10,7 +10,7 @@ public class District {
     /**
      * The list of domains this district contains
      */
-    private ArrayList<field.Domain> domains;
+    private ArrayList<Domain> domains;
 
     /**
      * ID attribution
@@ -24,7 +24,6 @@ public class District {
 
     /**
      * Instantiates a District object with the given color
-     * @param c the color of this district
      */
     public District(){
 	domains = new ArrayList<>();
@@ -34,7 +33,7 @@ public class District {
      * Getter for the list of domains in this district
      * @return the list of domains in this district
      */
-    public ArrayList<field.Domain> getDomains(){
+    public ArrayList<Domain> getDomains(){
 	return domains;
     }
 
@@ -49,7 +48,7 @@ public class District {
      * Adds the given domain to the list of domains in this district
      * @param domain the domain to add to the list of domains in this district
      */
-    public void addDomain(field.Domain domain){
+    public void addDomain(Domain domain){
 	if(!domains.contains(domain)) {
 
 	    //adds the domain to this district
@@ -65,13 +64,13 @@ public class District {
      * @param domain the domain on which its owner would like to build
      * @return true if the construction is uniform, false otherwise
      */
-    public boolean isConstructionUniform(field.Domain domain){
+    public boolean isConstructionUniform(Domain domain){
 
 	//the number of houses on the given domain
 	int nbrOfHouses = domain.getConstructionFactory().getNumberOfHouses();
 
 	//for each domain in the district
-	for(field.Domain d : domains){
+	for (Domain d : domains){
 
 	    //if the number of houses on the domain is inferior to the number
 	    //of houses on the given domain
@@ -95,7 +94,7 @@ public class District {
     public boolean hotelUniformity(){
 
 	//for each domain in this district
-	for(field.Domain d: domains){
+	for (Domain d: domains){
 
 	    //if the number of houses of the domain is not 4
 	    if(d.getConstructionFactory().getNumberOfHouses() != 4){
@@ -117,7 +116,7 @@ public class District {
      */
     public int destroyBuildings(){
 	int total = 0;
-	for(field.Domain domain : domains){
+	for (Domain domain : domains){
 	    total += domain.getConstructionFactory().destroyBuildings();
 	}
 	return total;
@@ -128,7 +127,7 @@ public class District {
      * @return true if the district is empty, false otherwise
      */
     public boolean isEmpty(){
-	for(field.Domain domain : domains){
+	for (Domain domain : domains){
 	    if(!domain.getConstructionFactory().isEmpty()){
 		return false;
 	    }

@@ -1,8 +1,9 @@
 package fr.formiko.model.field;
 
+import fr.formiko.utils.CSVReader;
+
 import java.util.LinkedList;
 import java.util.ArrayList;
-import utils.CSVReader;
 
 /**
  * The Field class represents the board on which the Players will move their pawns
@@ -13,7 +14,7 @@ public class Field {
     /**
      * Array of FieldElements that compose the board.
      */
-    private field.FieldElement[] field;
+    private FieldElement[] field;
 
     /**
      * The length of the board aka the number of FieldElements on the board.
@@ -22,12 +23,12 @@ public class Field {
     private static final int length = 40;
 
     /**
-     * Instantiates an object Field. It initialize the field attribute
+     * Instantiates an object It initialize the field attribute
      * with a FieldElement array of length length and calls fieldInitialize()
      */
     public Field(Dice dice)
     {
-      this.field = new field.FieldElement[length];
+      this.field = new FieldElement[length];
       fieldInitialize(dice);
     }
 
@@ -40,7 +41,7 @@ public class Field {
 	District.resetDistrictID();
 
 	//START
-	field[0] = new field.Start(0,"START");
+	field[0] = new Start(0,"START");
 
 	//Districts
 	District brown = new District();
@@ -87,33 +88,33 @@ public class Field {
 	}
 
 
-	field[2] = new field.FortuneWheel(2);
-	field[7] = new field.FortuneWheel(7);
-	field[17] = new field.FortuneWheel(17);
-	field[22] = new field.FortuneWheel(22);
-	field[33] = new field.FortuneWheel(33);
-	field[36] = new field.FortuneWheel(36);
+	field[2] = new FortuneWheel(2);
+	field[7] = new FortuneWheel(7);
+	field[17] = new FortuneWheel(17);
+	field[22] = new FortuneWheel(22);
+	field[33] = new FortuneWheel(33);
+	field[36] = new FortuneWheel(36);
 
 	//TrainStations
-	field[5] = new field.TrainStation("GARE MONTPARNASSE", 200, 5, 100);
-	field[15] = new field.TrainStation("GARE DE LYON", 200, 15, 100);
-	field[25] = new field.TrainStation("GARE DU NORD", 200, 25, 100);
-	field[35] = new field.TrainStation("GARE SAINT-LAZARE", 200, 35, 100);
+	field[5] = new TrainStation("GARE MONTPARNASSE", 200, 5, 100);
+	field[15] = new TrainStation("GARE DE LYON", 200, 15, 100);
+	field[25] = new TrainStation("GARE DU NORD", 200, 25, 100);
+	field[35] = new TrainStation("GARE SAINT-LAZARE", 200, 35, 100);
 
 	//Taxes
-	field[4] = new field.LuxuryTaxe(4, "IMPÔTS SUR LE REVENU", 200);
-	field[38] = new field.LuxuryTaxe(38, "TAXE DE LUXE", 100);
+	field[4] = new LuxuryTaxe(4, "IMPÔTS SUR LE REVENU", 200);
+	field[38] = new LuxuryTaxe(38, "TAXE DE LUXE", 100);
 
 	//Jail
-	field[30] = new field.GoToJail(30, "GO TO JAIL");
-	field[10] = new field.Jail(10, "EN PRISON/SIMPLE VISITE");
+	field[30] = new GoToJail(30, "GO TO JAIL");
+	field[10] = new Jail(10, "EN PRISON/SIMPLE VISITE");
 
 	//Public Companies
   field[12] = new ElectricityProvider("COMPAGNIE DE DISTRIBUTION D'ÉLECTRICITÉ", 150, 12, dice, 75);
-	field[28] = new field.WaterProvider("COMPAGNIE DE DISTRIBUTION DES EAUX", 150, 28, dice, 75);
+	field[28] = new WaterProvider("COMPAGNIE DE DISTRIBUTION DES EAUX", 150, 28, dice, 75);
 
 	//Free Parking
-	field[20] = new field.FreeParking(20, "PARC GRATUIT");
+	field[20] = new FreeParking(20, "PARC GRATUIT");
     }
 
     /**
@@ -145,7 +146,7 @@ public class Field {
      * Getter for the field
      * @return the field of elements
      */
-    public field.FieldElement[] getFieldElements()
+    public FieldElement[] getFieldElements()
     {
       return this.field;
     }
@@ -160,7 +161,7 @@ public class Field {
     }
 
 
-public field.FieldElement get(int i)
+public FieldElement get(int i)
 {
         if (i >= 0 && i < length)
         {

@@ -1,13 +1,7 @@
 package fr.formiko.model.game;
 
-import field.Field;
-import field.FieldElement;
-import field.Dice;
-import field.Property;
-import field.Domain;
-import field.ElectricityProvider;
-import field.WaterProvider;
 
+import fr.formiko.model.field.*;
 
 /**
 * This class is the actual game, it links all object in order to play a game of Monopoly.
@@ -18,7 +12,7 @@ public class Game
   /**
   * The players in this game
   */
-  private game.Player[] players;
+  private Player[] players;
 
   /**
   * Number of doubles of a player in row
@@ -68,7 +62,7 @@ public FieldElement getActualLocation()
  * @param field the field where this game is taking place
  * @param nb_dices The number of dices of the game.
  */
-    public Game(game.Player[] players, int nb_dices)
+    public Game(Player[] players, int nb_dices)
     {
 	dice = new Dice(nb_dices);
 	this.field = new Field(dice);
@@ -81,7 +75,7 @@ public FieldElement getActualLocation()
      * Gets the players of this game
      * @return the array of players in this game
      */
-    public game.Player[] getPlayers() {
+    public Player[] getPlayers() {
 	return (this.players);
     }
 
@@ -97,7 +91,7 @@ public FieldElement getActualLocation()
      * Getter of the current player
      * @return an instance of the current player
      */
-    public game.Player getCurrentPlayer(){
+    public Player getCurrentPlayer(){
 	return players[current];
     }
 
@@ -169,7 +163,7 @@ public FieldElement getActualLocation()
      */
     public boolean someoneOwnsTheProperty()
     {
-      game.Player owner =  ((Property)getActualLocation()).getOwner();
+      Player owner =  ((Property)getActualLocation()).getOwner();
       return (owner != null && owner != this.players[current]);
     }
 
@@ -178,7 +172,7 @@ public FieldElement getActualLocation()
      * Gets the winner of the game.
      * @return The winner of the game.
      */
-    public game.Player getGameWinner()
+    public Player getGameWinner()
     {
       for(int i = 0; i < players.length; i++)
       {

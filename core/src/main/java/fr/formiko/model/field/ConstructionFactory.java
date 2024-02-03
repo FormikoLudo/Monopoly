@@ -11,17 +11,17 @@ public class ConstructionFactory {
     /**
      * The list of houses of the associated domain
      */
-    private ArrayList<field.House> houses;
+    private ArrayList<House> houses;
 
     /**
      * The hotel of the associated domain
      */
-    private field.Hotel hotel;
+    private Hotel hotel;
 
     /**
      * The domain managed by this class
      */
-    private field.Domain domain;
+    private Domain domain;
 
     /**
      * The fixed price of build for houses and hotel of the
@@ -29,7 +29,7 @@ public class ConstructionFactory {
      */
     private final int buildPrice;
 
-    public ConstructionFactory(field.Domain domain, int buildPrice){
+    public ConstructionFactory (Domain domain, int buildPrice){
 	houses = new ArrayList<>();
 	hotel = null;
 	this.domain = domain;
@@ -60,7 +60,7 @@ public class ConstructionFactory {
      */
     private void buildHouse(){
 	domain.getOwner().pay(buildPrice);
-	houses.add(new field.House(buildPrice, buildPrice / 2));
+	houses.add(new House(buildPrice, buildPrice / 2));
     }
 
     /**
@@ -72,7 +72,7 @@ public class ConstructionFactory {
      */
     private void buildHotel(){
 	domain.getOwner().pay(buildPrice);
-	hotel = new field.Hotel(buildPrice, buildPrice / 2, 100 * domain.getDistrict().getColor());
+	hotel = new Hotel(buildPrice, buildPrice / 2, 100 * domain.getDistrict().getColor());
     }
 
     /**
@@ -133,7 +133,7 @@ public class ConstructionFactory {
      * Gets the hotel of this construction factory
      * @return the hotel of this construction factory
      */
-    public field.Hotel getHotel(){
+    public Hotel getHotel(){
 	return hotel;
     }
 
@@ -168,7 +168,7 @@ public class ConstructionFactory {
      */
     public int destroyBuildings(){
 	int total = 0;
-	for(field.House house : houses){
+	for(House house : houses){
 	    total += house.getSellingPrice();
 	}
 	//empty the house list (by creating a new instance)

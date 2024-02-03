@@ -1,6 +1,6 @@
 package fr.formiko.model.game;
 
-public class FiscalParadiseSkill extends game.Skill {
+public class FiscalParadiseSkill extends Skill {
 
     /**
      * The tax reduction of this skill

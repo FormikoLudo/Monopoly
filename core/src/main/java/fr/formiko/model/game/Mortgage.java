@@ -1,6 +1,7 @@
 package fr.formiko.model.game;
 
-import field.Property;
+
+import fr.formiko.model.field.Property;
 
 import java.util.ArrayList;
 import java.lang.Math;
@@ -13,7 +14,7 @@ public class Mortgage {
     /**
      * The player who wants to mortgage properties
      */
-    private game.Player player;
+    private Player player;
 
     /**
      * Instantiates a new Mortgage object with the
@@ -21,7 +22,7 @@ public class Mortgage {
      * @param player the new player who wants to mortgage
      * properties
      */
-    public Mortgage(game.Player player){
+    public Mortgage(Player player){
 	this.player = player;
     }
 

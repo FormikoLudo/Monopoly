@@ -9,7 +9,7 @@ package fr.formiko.model.game;
  * With money, they will be able to improve this ability and pay less
  * less and less
  */
-public class NegociatorSkill extends game.Skill {
+public class NegociatorSkill extends Skill {
 
     /**
      * The multiplier decreasing the rent to pay

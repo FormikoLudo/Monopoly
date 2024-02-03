@@ -163,8 +163,8 @@ public class Player
 
 	//if the current player has unlocked the Negociator skill, the amount
 	//to pay is reduced
-	if(hasTheSkillUnlocked(new Integer(1))){
-	    price = ((NegociatorSkill) getSkillByID(new Integer(1)))
+	if(hasTheSkillUnlocked(1)){
+	    price = ((NegociatorSkill) getSkillByID(1))
 		.computeNewPriceToPay(price);
 	}
 

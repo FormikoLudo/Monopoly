@@ -5,7 +5,7 @@ package fr.formiko.model.game;
  * a bonus at the end of each round according to the
  * number of properties they own
  */
-public class InvestorSkill extends game.Skill {
+public class InvestorSkill extends Skill {
 
     /**
      * The value of the bonus received at the
@@ -32,7 +32,7 @@ public class InvestorSkill extends game.Skill {
      * @return the bonus that the player that has this skill
      * will receive at the end of the round
      */
-    public int bonus(game.Player player){
+    public int bonus(Player player){
 	//update round bonus
 	roundBonus = 10 * getCurrentLevel();
 	return roundBonus * player.getNumberOfProperties();

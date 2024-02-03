@@ -1,5 +1,7 @@
 package fr.formiko.model.field;
-import game.Player;
+
+import fr.formiko.model.game.Player;
+
 /**
  * This class represents the cards that deal with player's money.
  */
@@ -30,7 +32,7 @@ public class MoveCard extends Card
                 {
                         if (this.value < 0)
                         {
-                                // player.setLocation(((player.getLocation() + this.value) + Field.getLength()) % Field.getLength());
+                                // player.setLocation(((player.getLocation() + this.value) + getLength()) % Field.getLength());
                                 player.getPawn().setLocation(((player.getPawn().getLocation() + this.value) + Field.getLength()) % Field.getLength());
                         }
                         else
@@ -46,7 +48,7 @@ public class MoveCard extends Card
                 }
           if(player.getPawn().getLocation() <= lastLocation)
           {
-            player.setMoney(player.getMoney() + field.Start.getReward());
+            player.setMoney(player.getMoney() + Start.getReward());
           }
         }
 

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * This class represents a bot player that can play at the place of the real players.
  */
-public class BotPlayer extends game.Player
+public class BotPlayer extends Player
 {
   /**
    * Constructor of a BotPlayer.
