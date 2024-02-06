@@ -12,10 +12,6 @@ public class Monopoly extends Game {
     BitmapFont font;
     @Override
     public void create() {
-        setScreen(new FirstScreen(this));
-        batch = new SpriteBatch();
-        shapeRenderer = new ShapeRenderer();
-        font = new BitmapFont();
-        setScreen(new FirstScreen(this));
+       this.setScreen(new FirstScreen(this));
     }
 }

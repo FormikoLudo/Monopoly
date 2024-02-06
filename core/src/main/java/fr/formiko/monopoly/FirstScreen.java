@@ -3,46 +3,74 @@ package fr.formiko.monopoly;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.ui.VerticalGroup;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
+
+import java.util.List;
 
 /** First screen of the application. Displayed after the application is created. */
 public class FirstScreen implements Screen {
     private Stage stg;
-    Button b;
-    Monopoly game;
+    private Monopoly game;
+    private List<String> buttonLabels;
+
+    private VerticalGroup layout;
+    private Skin skin  = new Skin(Gdx.files.internal("ui/uiskin.json"));
+
     public FirstScreen(Monopoly monopoly) {
-         this.b = new Button();
-         b.setStyle(new Button.ButtonStyle());
-         game  = monopoly;
-         stg = new Stage();
-         stg.addActor(b);
-         stg.act();
-         //stg.draw();
+        this.game = monopoly;
+        this.buttonLabels = List.of("Play","Help", "Quit");
+
     }
 
     @Override
     public void show() {
-        // Prepare your screen here.
+        stg = new Stage(new ScreenViewport());
+        Gdx.input.setInputProcessor(stg);
+        // Initialize the layout
+            layout = new VerticalGroup();
+        layout.space(10); // Add space between buttons
+        layout.setFillParent(true); // Make the VerticalGroup fill the stage
+        layout.center().center(); // Center horizontally and align items to the top
+        layout.setSize(500,400);
+        layout.fill();
+
+        // Add buttons to the layout
+        for (String label: buttonLabels) {
+            TextButton b = new TextButton(label, skin);
+            b.setSize(100,50);
+            b.addListener(new ClickListener(){
+                @Override
+                public void clicked(InputEvent event, float x, float y) {
+                    super.clicked(event, x, y);
+                    System.out.println(b + " got clicked");
+                }
+            });
+            layout.addActor(b);
+        }
+
+        // Add the layout to the stage
+        stg.addActor(layout);
 
     }
 
     @Override
     public void render(float delta) {
-        // Draw your screen here. "delta" is the time since last render in seconds.
-        Gdx.gl.glClearColor(0, .25f, 0, 1);
+        Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        game.batch.begin();
-        game.font.draw(game.batch, "Title Screen!", Gdx.graphics.getWidth() * .25f, Gdx.graphics.getHeight() * .75f);
-        game.font.draw(game.batch, "Click the circle to win.", Gdx.graphics.getWidth() * .25f, Gdx.graphics.getHeight() * .5f);
-        game.font.draw(game.batch, "Press space to play.", Gdx.graphics.getWidth() * .25f, Gdx.graphics.getHeight() * .25f);
-        game.batch.end();
+        stg.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
         stg.draw();
     }
 
     @Override
     public void resize(int width, int height) {
         // Resize your screen here. The parameters represent the new window size.
+        stg.getViewport().update(width, height, true);
     }
 
     @Override
