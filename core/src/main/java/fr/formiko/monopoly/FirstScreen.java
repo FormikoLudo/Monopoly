@@ -32,30 +32,26 @@ public class FirstScreen implements Screen {
     public void show() {
         stg = new Stage(new ScreenViewport());
         Gdx.input.setInputProcessor(stg);
-        // Initialize the layout
-            layout = new VerticalGroup();
-        layout.space(10); // Add space between buttons
-        layout.setFillParent(true); // Make the VerticalGroup fill the stage
-        layout.center().center(); // Center horizontally and align items to the top
-        layout.setSize(500,400);
-        layout.fill();
 
+        int i = 0;
         // Add buttons to the layout
-        for (String label: buttonLabels) {
+        for (String label: buttonLabels.reversed()) {
             TextButton b = new TextButton(label, skin);
-            b.setSize(100,50);
+            b.setX(600);
+            b.setY(150 * i + 300);
+            b.setSize(300,100);
             b.addListener(new ClickListener(){
                 @Override
                 public void clicked(InputEvent event, float x, float y) {
                     super.clicked(event, x, y);
-                    System.out.println(b + " got clicked");
+                    System.exit(0);
                 }
             });
-            layout.addActor(b);
+            stg.addActor(b);
+            i++;
         }
 
         // Add the layout to the stage
-        stg.addActor(layout);
 
     }
 

@@ -1,5 +1,6 @@
 package fr.formiko.monopoly.lwjgl3;
 
+import com.badlogic.gdx.Graphics;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 import fr.formiko.monopoly.Monopoly;
@@ -26,6 +27,7 @@ public class Lwjgl3Launcher {
         //// You may also need to configure GPU drivers to fully disable Vsync; this can cause screen tearing.
         configuration.setWindowedMode(640, 480);
         configuration.setWindowIcon("libgdx128.png", "libgdx64.png", "libgdx32.png", "libgdx16.png");
+        configuration.setFullscreenMode(Lwjgl3ApplicationConfiguration.getDisplayMode());
         return configuration;
     }
 }
