@@ -4,6 +4,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.BitmapFontCache;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -24,20 +26,19 @@ public class HelpScreen implements Screen {
     private Monopoly game;
 
     private Skin skin  = new Skin(Gdx.files.internal("ui/uiskin.json"));
-    private Locale lang;
-    private ResourceBundle labels;
 
     public HelpScreen(Monopoly monopoly) {
         this.game = monopoly;
-        this.lang = new Locale("fr");
         this.stg = new Stage();
-        ResourceBundle labels = ResourceBundle.getBundle("languages/translation",lang);
     }
 
     @Override
     public void show() {
-        Label l = new Label(Monopoly.LABELS.getString("howtoplay"),skin);
-        stg.addActor(l);
+        Table table = new Table();
+        table.setPosition(0, Gdx.graphics.getHeight());
+        table.add(new Label(Monopoly.LABELS.getString("howtoplay"),skin)).row();
+        ScrollPane scrl = new ScrollPane(table);
+        stg.addActor(scrl);
     }
 
     @Override
