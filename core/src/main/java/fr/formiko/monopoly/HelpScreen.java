@@ -4,21 +4,11 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.BitmapFontCache;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
-import com.badlogic.gdx.utils.Align;
-import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
-
-import java.util.List;
-import java.util.Locale;
-import java.util.ResourceBundle;
 
 /** First screen of the application. Displayed after the application is created. */
 public class HelpScreen implements Screen {
@@ -29,16 +19,48 @@ public class HelpScreen implements Screen {
 
     public HelpScreen(Monopoly monopoly) {
         this.game = monopoly;
-        this.stg = new Stage();
+
     }
 
     @Override
     public void show() {
+        this.stg = new Stage(new ScreenViewport());
+        Gdx.input.setInputProcessor(stg);
         Table table = new Table();
-        table.setPosition(0, Gdx.graphics.getHeight());
-        table.add(new Label(Monopoly.LABELS.getString("howtoplay"),skin)).row();
-        ScrollPane scrl = new ScrollPane(table);
-        stg.addActor(scrl);
+        table.setFillParent(true);
+        stg.addActor(table);
+
+
+        // Title
+        Label titleLabel = new Label("Help", skin);
+        table.add(titleLabel).pad(10);
+        table.row();
+
+        // Scrollable Text Area for Monopoly Rules
+        String monopolyRules = "Monopoly Rules Here..."; // Replace this with actual Monopoly rules
+        Label rulesLabel = new Label(monopolyRules, skin);
+        rulesLabel.setWrap(true);
+        ScrollPane scrollPane = new ScrollPane(rulesLabel, skin);
+        table.add(scrollPane).expand().fill().pad(10).height(Gdx.graphics.getHeight() * 0.9f);
+        table.row();
+
+        // Back Button
+        TextButton backButton = new TextButton("Back", skin);
+        backButton.pad(10);
+        backButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                System.out.println("CLICKED BACK BTN");
+                game.setScreen(new MainMenuScreen(game)); // Change to your actual main menu screen
+            }
+
+            ;
+        });
+        table.add(backButton).pad(10);
+
+        table.top(); // Align content to the top of th
+
+
     }
 
     @Override
@@ -80,9 +102,5 @@ public class HelpScreen implements Screen {
     @Override
     public void dispose() {
         // Destroy screen's assets here.
-    }
-    private void setSelected(TextButton b) {
-        Drawable hoverDrawable = b.getStyle().over;
-        b.setStyle(new Button.ButtonStyle(hoverDrawable,hoverDrawable,hoverDrawable));
     }
 }

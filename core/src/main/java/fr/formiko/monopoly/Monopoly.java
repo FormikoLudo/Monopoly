@@ -14,14 +14,14 @@ public class Monopoly extends Game {
     SpriteBatch batch;
     ShapeRenderer shapeRenderer;
 
-    public static Locale LANGUAGE = new Locale("fr","FR");
+    public static Locale LANGUAGE = Locale.of("fr","FR");
     public static ResourceBundle LABELS = ResourceBundle.getBundle("languages/translation",LANGUAGE);
-    public static   BitmapFont font;
+    public static BitmapFont font;
     @Override
     public void create() {
 
         font  = Fonts.getDefaultFont(40.f);
-       this.setScreen(new FirstScreen(this));
+       this.setScreen(new MainMenuScreen(this));
         System.out.println(font);
     }
 }
