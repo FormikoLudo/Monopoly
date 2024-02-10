@@ -14,6 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import fr.formiko.utils.Finals;
+import fr.formiko.utils.WidgetsFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,21 +24,14 @@ public class MainMenuScreen implements Screen {
     private Stage stg;
     private static TextButton currentlySelected;
     private Monopoly game;
-    private List<String> buttonLabels;
     private List<String> buttonKeys;
     private List<MyButton> buttons;
 
     private int selected;
-    private Skin skin  = new Skin(Gdx.files.internal("ui/uiskin.json"));
 
 
     public MainMenuScreen(Monopoly monopoly) {
         this.game = monopoly;
-        this.buttonLabels = List.of(
-            Monopoly.LABELS.getString(Finals.PLAY_BTN_LABEL),
-            Monopoly.LABELS.getString(Finals.HELP_BTN_LABEL),
-            Monopoly.LABELS.getString(Finals.QUIT_BTN_LABEL)
-        );
         this.buttonKeys = List.of(
             Finals.PLAY_BTN_LABEL,
             Finals.HELP_BTN_LABEL,
@@ -49,13 +43,9 @@ public class MainMenuScreen implements Screen {
 
     @Override
     public void show() {
-        String DEFAULT_STYLE = "default";
-        skin.add(DEFAULT_STYLE, Monopoly.font);
 
         // Configure a TextButtonStyle and name it DEFAULT_STYLE. Skin resources are stored by type, so this doesn't overwrite the font.
-        TextButton.TextButtonStyle textButtonStyle = skin.get(TextButton.TextButtonStyle.class);
-        textButtonStyle.font = skin.getFont(DEFAULT_STYLE);
-        skin.add(DEFAULT_STYLE, textButtonStyle);
+
 
         VerticalGroup vg = new VerticalGroup().fill();
         vg.setX(Gdx.graphics.getWidth()/2.f, Align.center);
@@ -66,12 +56,11 @@ public class MainMenuScreen implements Screen {
 
         int i = 0;
         // Add buttons to the layout
-        for (String label: buttonLabels) {
-            MyButton b = new MyButton(label, skin, buttonKeys.get(i));
+        for (String label: buttonKeys) {
+            MyButton b = WidgetsFactory.getButton(label,buttonKeys.get(i),getRunnable(buttonKeys.get(i)));
             this.buttons.add(b);
             vg.addActor(b);
             vg.space(50);
-            b.addListener(getClickListener(b.getKey()));
             b.pad(20);
             selectButton(0);
 
@@ -82,6 +71,14 @@ public class MainMenuScreen implements Screen {
         stg.addActor(vg);
 
 
+    }
+
+    private Runnable getRunnable(String s) {
+        return switch (s) {
+            case Finals.HELP_BTN_LABEL -> () -> game.setScreen(new HelpScreen(game));
+            case Finals.QUIT_BTN_LABEL -> () -> System.exit(0);
+            default -> () -> System.exit(0); // Unreachable state.
+        };
     }
 
     @Override
@@ -151,31 +148,7 @@ public class MainMenuScreen implements Screen {
         selected = index;
     }
 
-    private ClickListener getClickListener(String btnLabel) {
-        return switch (btnLabel) {
-            case Finals.HELP_BTN_LABEL ->
-                new ClickListener(){
-                    @Override
-                    public void clicked(InputEvent event, float x, float y) {
-                        super.clicked(event, x, y);
-                        game.setScreen(new HelpScreen(game));
-                    }
-                };
-            case Finals.QUIT_BTN_LABEL ->
-                new ClickListener(){
-                    @Override
-                    public void clicked(InputEvent event, float x, float y) {
-                        super.clicked(event, x, y);
-                        System.exit(0);
-                    }
-                };
-            default -> new ClickListener(){
-                @Override
-                public void clicked(InputEvent event, float x, float y) {
-                    super.clicked(event, x, y);
-                    System.exit(0);
-                }
-            };
-        };
+    private void getClickListener(String btnLabel) {
+
     }
 }

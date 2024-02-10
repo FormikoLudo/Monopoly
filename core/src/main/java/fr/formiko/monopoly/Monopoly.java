@@ -11,17 +11,10 @@ import java.util.ResourceBundle;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 public class Monopoly extends Game {
-    SpriteBatch batch;
-    ShapeRenderer shapeRenderer;
 
-    public static Locale LANGUAGE = Locale.of("fr","FR");
-    public static ResourceBundle LABELS = ResourceBundle.getBundle("languages/translation",LANGUAGE);
-    public static BitmapFont font;
+
     @Override
     public void create() {
-
-        font  = Fonts.getDefaultFont(40.f);
-       this.setScreen(new MainMenuScreen(this));
-        System.out.println(font);
+        this.setScreen(new MainMenuScreen(this));
     }
 }

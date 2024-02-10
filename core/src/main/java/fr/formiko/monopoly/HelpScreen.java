@@ -9,6 +9,8 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import fr.formiko.utils.Finals;
+import fr.formiko.utils.WidgetsFactory;
 
 /** First screen of the application. Displayed after the application is created. */
 public class HelpScreen implements Screen {
@@ -45,7 +47,7 @@ public class HelpScreen implements Screen {
         table.row();
 
         // Back Button
-        TextButton backButton = new TextButton("Back", skin);
+        MyButton backButton = WidgetsFactory.getButton(Finals.BACK_BTN_LABEL,"key",()->{game.setScreen(new MainMenuScreen(game));});
         backButton.pad(10);
         backButton.addListener(new ClickListener() {
             @Override
