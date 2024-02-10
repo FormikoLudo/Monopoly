@@ -1,6 +1,10 @@
 package fr.formiko.utils;
 
 public final class Finals {
+    public static final String PLAY_LABEL = "playlabel";
+    public static final String HOW_TO_WIN = "howtowin";
+    public static final String HOW_TO_WIN_PAR = "howtowinpar";
+
     private Finals(){}
 
     // PROPERTIES FILES LABELS

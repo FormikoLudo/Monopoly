@@ -8,8 +8,10 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import fr.formiko.utils.Finals;
+import fr.formiko.utils.TextSize;
 import fr.formiko.utils.WidgetsFactory;
 
 /** First screen of the application. Displayed after the application is created. */
@@ -39,16 +41,32 @@ public class HelpScreen implements Screen {
         table.row();
 
         // Scrollable Text Area for Monopoly Rules
-        String monopolyRules = "Monopoly Rules Here..."; // Replace this with actual Monopoly rules
-        Label rulesLabel = new Label(monopolyRules, skin);
-        rulesLabel.setWrap(true);
-        ScrollPane scrollPane = new ScrollPane(rulesLabel, skin);
-        table.add(scrollPane).expand().fill().pad(10).height(Gdx.graphics.getHeight() * 0.9f);
+        Label firstLabel = WidgetsFactory.getTile(WidgetsFactory.LABELS.getString(Finals.PLAY_LABEL), TextSize.H1);
+        firstLabel.setWrap(false);
+        firstLabel.setAlignment(Align.top);
+
+
+        Label secondLabel = WidgetsFactory.getTile(WidgetsFactory.LABELS.getString(Finals.HOW_TO_WIN), TextSize.H2);
+        secondLabel.setWrap(false);
+        secondLabel.setAlignment(Align.top);
+
+        Label thirdLabel = WidgetsFactory.getTile(WidgetsFactory.LABELS.getString(Finals.FIRST_HELP_PAR), TextSize.P);
+        thirdLabel.setWrap(false);
+        thirdLabel.setAlignment(Align.top);
+
+
+        Table content = new Table();
+        content.add(firstLabel);
+        content.row();
+        content.add(secondLabel);
+        content.row();
+        content.add(thirdLabel);
+        ScrollPane scrollPane = new ScrollPane(content, skin);
+        table.add(scrollPane).expand().fill().pad(10).height(Gdx.graphics.getHeight() * 0.7f);
         table.row();
 
         // Back Button
         MyButton backButton = WidgetsFactory.getButton(Finals.BACK_BTN_LABEL,"key",()->{game.setScreen(new MainMenuScreen(game));});
-        backButton.pad(10);
         backButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -75,7 +93,8 @@ public class HelpScreen implements Screen {
     }
 
     private void handleInput() {
-        if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN)){
+        if (Gdx.input.isKeyJustPressed(Input.Keys.UP)){}
+        else if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN)){
 
         }
     }

@@ -97,6 +97,7 @@ public class MainMenuScreen implements Screen {
             this.selected = (this.selected == 0)? this.buttons.size() - 1 : selected - 1;
         }
         selectButton(Math.abs(selected));
+
         if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
             this.buttons.get(Math.abs(selected)).getListeners().forEach(listener -> {
                 if (listener instanceof ClickListener) {
@@ -104,7 +105,6 @@ public class MainMenuScreen implements Screen {
                 }
             });
         }
-        System.out.println("Currently selected : " + this.buttons.get(Math.abs(selected)));
     }
 
     @Override
@@ -146,9 +146,5 @@ public class MainMenuScreen implements Screen {
         // Select the current button
         buttons.get(index).getLabel().setColor(1, 0, 0, 1); // Red color for the selected button
         selected = index;
-    }
-
-    private void getClickListener(String btnLabel) {
-
     }
 }

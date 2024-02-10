@@ -19,6 +19,19 @@ import java.nio.file.Files;
 public class Fonts extends BitmapFont {
     public static final String DEFAULT_COLOR = "[#000000]";
 
+    enum FontStyle {
+        REGULAR,
+        BOLD,
+        ITALIC
+    }
+
+    public static BitmapFont getBoldFont(float fontSize) {
+        return getFont(fontSize,FontStyle.BOLD);
+    }
+
+    public static BitmapFont getRegularFont(float fontSize) {
+        return getFont(fontSize,FontStyle.REGULAR);
+    }
 
     /**
      * {@summary Load the default font.}
@@ -26,8 +39,10 @@ public class Fonts extends BitmapFont {
      * @param fontSize size of the font.
      * @return the default font.
      */
-    public static BitmapFont getDefaultFont(float fontSize) {
-        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/Noto_Sans/NotoSans-Regular.ttf"));
+    private static BitmapFont getFont(float fontSize, FontStyle style) {
+
+        String fontLocation = "fonts/Noto_Sans/NotoSans-" + capitalize(style.toString()) + ".ttf";
+        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal(fontLocation));
         FreeTypeFontParameter parameter = new FreeTypeFontParameter();
         parameter.color = Color.WHITE;
         parameter.size = (int) fontSize;
@@ -35,5 +50,9 @@ public class Fonts extends BitmapFont {
         BitmapFont bmf = generator.generateFont(parameter);
         generator.dispose(); // don't forget to dispose to avoid memory leaks!
         return bmf;
+    }
+
+    public static String capitalize(String str) {
+        return str.substring(0,1).toUpperCase() + str.substring(1).toLowerCase();
     }
 }
