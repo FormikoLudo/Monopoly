@@ -17,40 +17,48 @@ public final class WidgetsFactory {
     private static BitmapFont WIDGET_FONT;
     private static BitmapFont H1_FONT;
     private static BitmapFont H2_FONT;
+    private static BitmapFont TEXT_FONT;
 
     public static Locale LANGUAGE = Locale.of("fr","FR");
     public static ResourceBundle LABELS = ResourceBundle.getBundle("languages/translation",LANGUAGE);
     private static final String DEFAULT_STYLE = "default";
     private static final String H1_STYLE = "h1";
     private static final String H2_STYLE = "h2";
+    private static final String WIDGET_STYLE = "widget";
 
     private WidgetsFactory(){}
 
 
 
     private static void prepareSkin(){
+        TEXT_FONT = Fonts.getRegularFont(20.f);
         WIDGET_FONT = Fonts.getRegularFont(40.f);
         H1_FONT = Fonts.getBoldFont(40.f);
         H2_FONT = Fonts.getBoldFont(30.f);
         mySkin =  new Skin(Gdx.files.internal("ui/uiskin.json"));
 
-        mySkin.add(DEFAULT_STYLE, WIDGET_FONT);
-
+        mySkin.add(DEFAULT_STYLE, TEXT_FONT);
+        mySkin.add(WIDGET_STYLE, WIDGET_FONT);
         mySkin.add(H1_STYLE,H1_FONT);
         mySkin.add(H2_STYLE,H2_FONT);
 
-        Label.LabelStyle defLabelStyle = mySkin.get(Label.LabelStyle.class);
+        Label.LabelStyle defLabelStyle = new Label.LabelStyle(mySkin.get(Label.LabelStyle.class));
         defLabelStyle.font = mySkin.getFont(H1_STYLE);
         mySkin.add(H1_STYLE,defLabelStyle);
 
+        defLabelStyle = new Label.LabelStyle(mySkin.get(Label.LabelStyle.class));
         defLabelStyle.font = mySkin.getFont(H2_STYLE);
         mySkin.add(H2_STYLE,defLabelStyle);
+
+        defLabelStyle = new Label.LabelStyle(mySkin.get(Label.LabelStyle.class));
+        defLabelStyle.font = mySkin.getFont(DEFAULT_STYLE);
+        mySkin.add(DEFAULT_STYLE,defLabelStyle);
 
 
 
         TextButton.TextButtonStyle textButtonStyle = mySkin.get(TextButton.TextButtonStyle.class);
-        textButtonStyle.font = mySkin.getFont(DEFAULT_STYLE);
-        mySkin.add(DEFAULT_STYLE, textButtonStyle);
+        textButtonStyle.font = mySkin.getFont(WIDGET_STYLE);
+        mySkin.add(WIDGET_STYLE, textButtonStyle);
     }
     public static MyButton getButton(String label, String key, Runnable action) {
         if (mySkin == null)
@@ -79,6 +87,6 @@ public final class WidgetsFactory {
             case H2 -> H2_STYLE;
             case P -> DEFAULT_STYLE;
         };
-       return new Label(text, mySkin.get(style,Label.LabelStyle.class));
+       return new Label(text, mySkin, style);
     }
 }
