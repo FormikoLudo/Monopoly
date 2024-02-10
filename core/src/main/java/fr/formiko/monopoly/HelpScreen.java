@@ -18,6 +18,7 @@ import fr.formiko.utils.WidgetsFactory;
 public class HelpScreen implements Screen {
     private Stage stg;
     private Monopoly game;
+    private static final float PERCENTAGE_OF_SCREEN_USED = 0.9f;
 
     private Skin skin  = new Skin(Gdx.files.internal("ui/uiskin.json"));
 
@@ -51,7 +52,7 @@ public class HelpScreen implements Screen {
         secondLabel.setAlignment(Align.top);
 
         Label thirdLabel = WidgetsFactory.getTile(WidgetsFactory.LABELS.getString(Finals.FIRST_HELP_PAR), TextSize.P);
-        thirdLabel.setWrap(false);
+        thirdLabel.setWrap(true);
         thirdLabel.setAlignment(Align.top);
 
 
@@ -60,7 +61,7 @@ public class HelpScreen implements Screen {
         content.row();
         content.add(secondLabel);
         content.row();
-        content.add(thirdLabel);
+        content.add(thirdLabel).width(Gdx.graphics.getWidth() * PERCENTAGE_OF_SCREEN_USED);
         ScrollPane scrollPane = new ScrollPane(content, skin);
         table.add(scrollPane).expand().fill().pad(10).height(Gdx.graphics.getHeight() * 0.7f);
         table.row();
