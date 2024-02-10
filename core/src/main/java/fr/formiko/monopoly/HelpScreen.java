@@ -44,22 +44,21 @@ public class HelpScreen implements Screen {
         // Scrollable Text Area for Monopoly Rules
         Label firstLabel = WidgetsFactory.getTile(WidgetsFactory.LABELS.getString(Finals.PLAY_LABEL), TextSize.H1);
         firstLabel.setWrap(false);
-        firstLabel.setAlignment(Align.top);
-
+        firstLabel.setAlignment(Align.left);
 
         Label secondLabel = WidgetsFactory.getTile(WidgetsFactory.LABELS.getString(Finals.HOW_TO_WIN), TextSize.H2);
         secondLabel.setWrap(false);
-        secondLabel.setAlignment(Align.top);
+        secondLabel.setAlignment(Align.left);
 
         Label thirdLabel = WidgetsFactory.getTile(WidgetsFactory.LABELS.getString(Finals.FIRST_HELP_PAR), TextSize.P);
         thirdLabel.setWrap(true);
-        thirdLabel.setAlignment(Align.top);
+        thirdLabel.setAlignment(Align.left);
 
 
         Table content = new Table();
-        content.add(firstLabel);
+        content.add(firstLabel).width(Gdx.graphics.getWidth() * PERCENTAGE_OF_SCREEN_USED);
         content.row();
-        content.add(secondLabel);
+        content.add(secondLabel).width(Gdx.graphics.getWidth() * PERCENTAGE_OF_SCREEN_USED);
         content.row();
         content.add(thirdLabel).width(Gdx.graphics.getWidth() * PERCENTAGE_OF_SCREEN_USED);
         ScrollPane scrollPane = new ScrollPane(content, skin);
