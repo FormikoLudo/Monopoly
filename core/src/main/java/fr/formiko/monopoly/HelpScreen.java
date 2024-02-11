@@ -40,27 +40,26 @@ public class HelpScreen implements Screen {
         Label titleLabel = new Label("Help", skin);
         table.add(titleLabel).pad(10);
         table.row();
-
-        // Scrollable Text Area for Monopoly Rules
-        Label firstLabel = WidgetsFactory.getTile(WidgetsFactory.LABELS.getString(Finals.PLAY_LABEL), TextSize.H1);
-        firstLabel.setWrap(false);
-        firstLabel.setAlignment(Align.left);
-
-        Label secondLabel = WidgetsFactory.getTile(WidgetsFactory.LABELS.getString(Finals.HOW_TO_WIN), TextSize.H2);
-        secondLabel.setWrap(false);
-        secondLabel.setAlignment(Align.left);
-
-        Label thirdLabel = WidgetsFactory.getTile(WidgetsFactory.LABELS.getString(Finals.FIRST_HELP_PAR), TextSize.P);
-        thirdLabel.setWrap(true);
-        thirdLabel.setAlignment(Align.left);
-
-
         Table content = new Table();
-        content.add(firstLabel).width(Gdx.graphics.getWidth() * PERCENTAGE_OF_SCREEN_USED);
-        content.row();
-        content.add(secondLabel).width(Gdx.graphics.getWidth() * PERCENTAGE_OF_SCREEN_USED);
-        content.row();
-        content.add(thirdLabel).width(Gdx.graphics.getWidth() * PERCENTAGE_OF_SCREEN_USED);
+        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_PLAY_LABEL,TextSize.H1,content,PERCENTAGE_OF_SCREEN_USED);
+
+        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_HOW_TO_WIN,TextSize.H2,content,PERCENTAGE_OF_SCREEN_USED);
+        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_HOW_TO_WIN_PAR,TextSize.P,content,PERCENTAGE_OF_SCREEN_USED);
+
+        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_WHO_STARTS_LABEL,TextSize.H2,content,PERCENTAGE_OF_SCREEN_USED);
+        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_WHO_STARTS_PAR,TextSize.P,content,PERCENTAGE_OF_SCREEN_USED);
+
+        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_YOUR_TURN,TextSize.H2,content,PERCENTAGE_OF_SCREEN_USED);
+        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_ROLL_DICES,TextSize.P,content,PERCENTAGE_OF_SCREEN_USED);
+        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_MOVE_YOUR_PAWN,TextSize.P,content,PERCENTAGE_OF_SCREEN_USED);
+        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_WHERE_ARE_YOU,TextSize.P,content,PERCENTAGE_OF_SCREEN_USED);
+        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_ROLLED_A_DOUBLE,TextSize.EM,content,PERCENTAGE_OF_SCREEN_USED);
+        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_ROLLED_A_DOUBLE_PAR,TextSize.P,content,PERCENTAGE_OF_SCREEN_USED);
+        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_PAY_ATTENTION,TextSize.EM,content,PERCENTAGE_OF_SCREEN_USED);
+        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_THREE_DOUBLES_LEAD_TO_JAIL,TextSize.P,content,PERCENTAGE_OF_SCREEN_USED);
+        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_FINISHED_TURN,TextSize.P,content,PERCENTAGE_OF_SCREEN_USED);
+        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_START_TO_PLAY,TextSize.H2,content,PERCENTAGE_OF_SCREEN_USED);
+        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_START_TO_PLAY_PAR, TextSize.P,content,PERCENTAGE_OF_SCREEN_USED);
         ScrollPane scrollPane = new ScrollPane(content, skin);
         table.add(scrollPane).expand().fill().pad(10).height(Gdx.graphics.getHeight() * 0.7f);
         table.row();

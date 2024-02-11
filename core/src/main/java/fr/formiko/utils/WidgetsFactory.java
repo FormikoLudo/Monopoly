@@ -5,8 +5,10 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.Align;
 import fr.formiko.monopoly.MyButton;
 
 import java.util.Locale;
@@ -17,11 +19,14 @@ public final class WidgetsFactory {
     private static BitmapFont WIDGET_FONT;
     private static BitmapFont H1_FONT;
     private static BitmapFont H2_FONT;
+
+    private static BitmapFont BOLD_TEXT_FONT;
     private static BitmapFont TEXT_FONT;
 
     public static Locale LANGUAGE = Locale.of("fr","FR");
     public static ResourceBundle LABELS = ResourceBundle.getBundle("languages/translation",LANGUAGE);
     private static final String DEFAULT_STYLE = "default";
+    private static final String BOLD_STYLE = "bold";
     private static final String H1_STYLE = "h1";
     private static final String H2_STYLE = "h2";
     private static final String WIDGET_STYLE = "widget";
@@ -32,6 +37,7 @@ public final class WidgetsFactory {
 
     private static void prepareSkin(){
         TEXT_FONT = Fonts.getRegularFont(20.f);
+        BOLD_TEXT_FONT = Fonts.getBoldFont(20.f);
         WIDGET_FONT = Fonts.getRegularFont(40.f);
         H1_FONT = Fonts.getBoldFont(40.f);
         H2_FONT = Fonts.getBoldFont(30.f);
@@ -41,6 +47,7 @@ public final class WidgetsFactory {
         mySkin.add(WIDGET_STYLE, WIDGET_FONT);
         mySkin.add(H1_STYLE,H1_FONT);
         mySkin.add(H2_STYLE,H2_FONT);
+        mySkin.add(BOLD_STYLE,BOLD_TEXT_FONT);
 
         Label.LabelStyle defLabelStyle = new Label.LabelStyle(mySkin.get(Label.LabelStyle.class));
         defLabelStyle.font = mySkin.getFont(H1_STYLE);
@@ -49,6 +56,10 @@ public final class WidgetsFactory {
         defLabelStyle = new Label.LabelStyle(mySkin.get(Label.LabelStyle.class));
         defLabelStyle.font = mySkin.getFont(H2_STYLE);
         mySkin.add(H2_STYLE,defLabelStyle);
+
+        defLabelStyle = new Label.LabelStyle(mySkin.get(Label.LabelStyle.class));
+        defLabelStyle.font = mySkin.getFont(BOLD_STYLE);
+        mySkin.add(BOLD_STYLE,defLabelStyle);
 
         defLabelStyle = new Label.LabelStyle(mySkin.get(Label.LabelStyle.class));
         defLabelStyle.font = mySkin.getFont(DEFAULT_STYLE);
@@ -86,7 +97,17 @@ public final class WidgetsFactory {
             case H1 -> H1_STYLE;
             case H2 -> H2_STYLE;
             case P -> DEFAULT_STYLE;
+            case EM -> BOLD_STYLE;
         };
        return new Label(text, mySkin, style);
+    }
+
+    public static void prepareLabelAndAddToTable(String labelText, TextSize textSize, Table parent, float percentageOfScreenUsed) {
+        Label res = WidgetsFactory.getTile(WidgetsFactory.LABELS.getString(labelText), textSize);
+        res.setWrap(textSize == TextSize.P || textSize == TextSize.EM);
+        res.setAlignment(Align.left);
+        parent.add(res).width(Gdx.graphics.getWidth() * percentageOfScreenUsed);
+        parent.row();
+
     }
 }
