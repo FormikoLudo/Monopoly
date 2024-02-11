@@ -36,6 +36,17 @@ public final class Finals {
     public static final String HELP_START_TO_PLAY = "helpstarttoplay";
     public static final String HELP_START_TO_PLAY_PAR ="helpstarttoplaypar";
     public static final String HELP_GAME_FIELD_CELLS = "helpgamefieldcells";
+    public static final String HELP_PROPERTIES = "helpporperties";
+    public static final String HELP_PROPERTIES_PAR = "helppropertiespar";
+    public static final String HELP_PROPERTIES_DONT_BELONG_TO_ANYBODY = "propertiesdontbelongtoanybody";
+    public static final String HELP_YOU_WANT_TO_BUY_IT = "youwanttobuyit";
+
+    public static final String HELP_YOU_WANT_TO_BUY_IT_PAR = "youwanttobuyitpar";
+    public static final String HELP_YOU_DONT_WANT_TO_BUY_IT = "youdontwanttobuyit";
+    public static final String HELP_YOU_DONT_WANT_TO_BUY_IT_PAR = "youdontwanttobuyitpar";
+    public static final String HELP_COLLECT_COLOR_GROUPS = "helpcollectcolorgroups";
+
+    public static final String HELP_PROPERTIES_DONT_BELONG_TO_ANYBODY_PAR = "propertiesdontbelongtoanybodypar";
     public static final String HELP_ACTION_CELLS = "helpactioncells";
     public static final String HELP_BUILDINGS = "helpbuildings";
     public static final String HELP_I_CAN_NOT_PAY_ANYMORE = "helpicannotpayanymore";

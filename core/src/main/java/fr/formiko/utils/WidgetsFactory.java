@@ -1,7 +1,15 @@
 package fr.formiko.utils;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -10,12 +18,16 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import fr.formiko.monopoly.MyButton;
+import space.earlygrey.shapedrawer.ShapeDrawer;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
 
 public final class WidgetsFactory {
     private static Skin mySkin  = null;
+    private static Batch  batch = null;
+    private static ShapeDrawer  schdr = null;
+
     private static BitmapFont WIDGET_FONT;
     private static BitmapFont H1_FONT;
     private static BitmapFont H2_FONT;
@@ -109,5 +121,34 @@ public final class WidgetsFactory {
         parent.add(res).width(Gdx.graphics.getWidth() * percentageOfScreenUsed);
         parent.row();
 
+    }
+
+    public static Table backgroundColoredGroup(Color bgColor, Vector2 size) {
+        Table g = new Table();
+        g.setColor(bgColor);
+        g.setSize(size.x,size.y);
+        return g;
+    }
+
+    public static ShapeDrawer createShapeDrawer(Batch batch) {
+        Pixmap pixmap = new Pixmap(1, 1, Pixmap.Format.RGBA8888);
+        pixmap.setColor(Color.WHITE);
+        pixmap.drawPixel(0, 0);
+        Texture texture = new Texture(pixmap); // remember to dispose of later
+        pixmap.dispose();
+        TextureRegion region = new TextureRegion(texture, 0, 0, 1, 1);
+        return new ShapeDrawer(batch, region);
+    }
+
+    public static Batch getBatch() {
+        if (batch == null)
+            batch = new SpriteBatch();
+        return batch;
+    }
+
+    public static ShapeDrawer getShapDrawer() {
+        if (schdr == null)
+            schdr = createShapeDrawer(getBatch());
+        return schdr;
     }
 }
