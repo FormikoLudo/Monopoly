@@ -3,6 +3,7 @@ package fr.formiko.utils;
 public final class Finals {
 
 
+
     private Finals(){}
 
     // PROPERTIES FILES LABELS
@@ -34,5 +35,11 @@ public final class Finals {
     public static final String HELP_FINISHED_TURN = "helpfinishedturn";
     public static final String HELP_START_TO_PLAY = "helpstarttoplay";
     public static final String HELP_START_TO_PLAY_PAR ="helpstarttoplaypar";
+    public static final String HELP_GAME_FIELD_CELLS = "helpgamefieldcells";
+    public static final String HELP_ACTION_CELLS = "helpactioncells";
+    public static final String HELP_BUILDINGS = "helpbuildings";
+    public static final String HELP_I_CAN_NOT_PAY_ANYMORE = "helpicannotpayanymore";
+
+
 
 }

@@ -53,13 +53,21 @@ public class HelpScreen implements Screen {
         WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_ROLL_DICES,TextSize.P,content,PERCENTAGE_OF_SCREEN_USED);
         WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_MOVE_YOUR_PAWN,TextSize.P,content,PERCENTAGE_OF_SCREEN_USED);
         WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_WHERE_ARE_YOU,TextSize.P,content,PERCENTAGE_OF_SCREEN_USED);
+
         WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_ROLLED_A_DOUBLE,TextSize.EM,content,PERCENTAGE_OF_SCREEN_USED);
         WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_ROLLED_A_DOUBLE_PAR,TextSize.P,content,PERCENTAGE_OF_SCREEN_USED);
         WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_PAY_ATTENTION,TextSize.EM,content,PERCENTAGE_OF_SCREEN_USED);
         WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_THREE_DOUBLES_LEAD_TO_JAIL,TextSize.P,content,PERCENTAGE_OF_SCREEN_USED);
+
         WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_FINISHED_TURN,TextSize.P,content,PERCENTAGE_OF_SCREEN_USED);
+
         WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_START_TO_PLAY,TextSize.H2,content,PERCENTAGE_OF_SCREEN_USED);
         WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_START_TO_PLAY_PAR, TextSize.P,content,PERCENTAGE_OF_SCREEN_USED);
+
+        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_GAME_FIELD_CELLS,TextSize.H1,content,PERCENTAGE_OF_SCREEN_USED);
+        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_ACTION_CELLS,TextSize.H1,content,PERCENTAGE_OF_SCREEN_USED);
+        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_BUILDINGS,TextSize.H1,content,PERCENTAGE_OF_SCREEN_USED);
+        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_I_CAN_NOT_PAY_ANYMORE,TextSize.H1,content,PERCENTAGE_OF_SCREEN_USED);
         ScrollPane scrollPane = new ScrollPane(content, skin);
         table.add(scrollPane).expand().fill().pad(10).height(Gdx.graphics.getHeight() * 0.7f);
         table.row();
