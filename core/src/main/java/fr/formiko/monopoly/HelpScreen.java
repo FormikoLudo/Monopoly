@@ -17,6 +17,7 @@ import fr.formiko.utils.Finals;
 import fr.formiko.utils.TextSize;
 import fr.formiko.utils.WidgetsFactory;
 
+import java.util.AbstractMap;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,16 +29,40 @@ public class HelpScreen implements Screen {
     private static final float PERCENTAGE_OF_SCREEN_USED = 0.9f;
 
     private Skin skin  = new Skin(Gdx.files.internal("ui/uiskin.json"));
-    private List<String> helpLabels;
+    private List<Map.Entry<String,TextSize>> helpLabels;
     private List<TextSize> textSizes;
 
     public HelpScreen(Monopoly monopoly) {
         this.game = monopoly;
-        this.helpLabels = List.of(Finals.HELP_BTN_LABEL,Finals.HELP_PLAY_LABEL,Finals.HELP_HOW_TO_WIN,Finals.HELP_HOW_TO_WIN_PAR,
-                                  Finals.HELP_WHO_STARTS_LABEL,Finals.HELP_WHO_STARTS_PAR,Finals.HELP_YOUR_TURN,Finals.HELP_ROLL_DICES,
-                                  Finals.HELP_MOVE_YOUR_PAWN,Finals.HELP_WHERE_ARE_YOU);
-        this.textSizes = List.of(TextSize.H1,TextSize.H1,TextSize.H2,TextSize.P,TextSize.H2,TextSize.P,TextSize.H2,TextSize.P,TextSize.P,TextSize.P);
-
+        this.helpLabels = List.of(
+            new AbstractMap.SimpleEntry<>(Finals.HELP_BTN_LABEL,TextSize.H1),
+            new AbstractMap.SimpleEntry<>(Finals.HELP_PLAY_LABEL,TextSize.H1),
+            new AbstractMap.SimpleEntry<>(Finals.HELP_HOW_TO_WIN,TextSize.H2),
+            new AbstractMap.SimpleEntry<>(Finals.HELP_HOW_TO_WIN_PAR,TextSize.P),
+            new AbstractMap.SimpleEntry<>(Finals.HELP_WHO_STARTS_LABEL,TextSize.H2),
+            new AbstractMap.SimpleEntry<>(Finals.HELP_WHO_STARTS_PAR,TextSize.P),
+            new AbstractMap.SimpleEntry<>(Finals.HELP_YOUR_TURN,TextSize.H2),
+            new AbstractMap.SimpleEntry<>(Finals.HELP_ROLL_DICES,TextSize.P),
+            new AbstractMap.SimpleEntry<>(Finals.HELP_MOVE_YOUR_PAWN,TextSize.P),
+            new AbstractMap.SimpleEntry<>(Finals.HELP_WHERE_ARE_YOU,TextSize.P),
+            new AbstractMap.SimpleEntry<>(Finals.HELP_ROLLED_A_DOUBLE,TextSize.EM),
+            new AbstractMap.SimpleEntry<>(Finals.HELP_ROLLED_A_DOUBLE_PAR,TextSize.P),
+            new AbstractMap.SimpleEntry<>(Finals.HELP_PAY_ATTENTION,TextSize.EM),
+            new AbstractMap.SimpleEntry<>(Finals.HELP_THREE_DOUBLES_LEAD_TO_JAIL,TextSize.P),
+            new AbstractMap.SimpleEntry<>(Finals.HELP_FINISHED_TURN,TextSize.P),
+            new AbstractMap.SimpleEntry<>(Finals.HELP_START_TO_PLAY,TextSize.H2),
+            new AbstractMap.SimpleEntry<>(Finals.HELP_START_TO_PLAY_PAR,TextSize.P),
+            new AbstractMap.SimpleEntry<>(Finals.HELP_GAME_FIELD_CELLS,TextSize.H1),
+            new AbstractMap.SimpleEntry<>(Finals.HELP_PROPERTIES,TextSize.H2),
+            new AbstractMap.SimpleEntry<>(Finals.HELP_PROPERTIES_DONT_BELONG_TO_ANYBODY,TextSize.H2),
+            new AbstractMap.SimpleEntry<>(Finals.HELP_YOU_WANT_TO_BUY_IT,TextSize.EM),
+            new AbstractMap.SimpleEntry<>(Finals.HELP_YOU_WANT_TO_BUY_IT_PAR,TextSize.P),
+            new AbstractMap.SimpleEntry<>(Finals.HELP_YOU_DONT_WANT_TO_BUY_IT,TextSize.EM),
+            new AbstractMap.SimpleEntry<>(Finals.HELP_YOU_DONT_WANT_TO_BUY_IT_PAR,TextSize.P),
+            new AbstractMap.SimpleEntry<>(Finals.HELP_COLLECT_COLOR_GROUPS,TextSize.EM),
+            new AbstractMap.SimpleEntry<>(Finals.HELP_YOU_OWN_ALL_GROUP,TextSize.P),
+            new AbstractMap.SimpleEntry<>(Finals.HELP_DOUBLE_RENT,TextSize.P)
+        );
     }
 
     @Override
@@ -54,39 +79,13 @@ public class HelpScreen implements Screen {
         table.add(titleLabel).pad(10);
         table.row();
         Table content = new Table();
-        for (int i = 0; i < helpLabels.size(); i++) {
-            WidgetsFactory.prepareLabelAndAddToTable(helpLabels.get(i),textSizes.get(i),content,PERCENTAGE_OF_SCREEN_USED);
-
+        for (AbstractMap.Entry<String,TextSize> e : helpLabels) {
+            WidgetsFactory.prepareLabelAndAddToTable(e.getKey(),e.getValue(),content,PERCENTAGE_OF_SCREEN_USED);
+            if (e.getKey().equals(Finals.HELP_COLLECT_COLOR_GROUPS)) {
+                content.add(colorTable().align(Align.left));
+                content.row();
+            }
         }
-        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_ROLLED_A_DOUBLE,TextSize.EM,content,PERCENTAGE_OF_SCREEN_USED);
-        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_ROLLED_A_DOUBLE_PAR,TextSize.P,content,PERCENTAGE_OF_SCREEN_USED);
-        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_PAY_ATTENTION,TextSize.EM,content,PERCENTAGE_OF_SCREEN_USED);
-        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_THREE_DOUBLES_LEAD_TO_JAIL,TextSize.P,content,PERCENTAGE_OF_SCREEN_USED);
-
-        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_FINISHED_TURN,TextSize.P,content,PERCENTAGE_OF_SCREEN_USED);
-
-        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_START_TO_PLAY,TextSize.H2,content,PERCENTAGE_OF_SCREEN_USED);
-        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_START_TO_PLAY_PAR, TextSize.P,content,PERCENTAGE_OF_SCREEN_USED);
-
-        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_GAME_FIELD_CELLS,TextSize.H1,content,PERCENTAGE_OF_SCREEN_USED);
-        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_PROPERTIES,TextSize.H2,content,PERCENTAGE_OF_SCREEN_USED);
-        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_PROPERTIES_PAR,TextSize.P,content,PERCENTAGE_OF_SCREEN_USED);
-        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_PROPERTIES_DONT_BELONG_TO_ANYBODY,TextSize.H2,content,PERCENTAGE_OF_SCREEN_USED);
-        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_PROPERTIES_DONT_BELONG_TO_ANYBODY_PAR,TextSize.P,content,PERCENTAGE_OF_SCREEN_USED);
-        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_YOU_WANT_TO_BUY_IT,TextSize.EM,content,PERCENTAGE_OF_SCREEN_USED);
-        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_YOU_WANT_TO_BUY_IT_PAR,TextSize.P,content,PERCENTAGE_OF_SCREEN_USED);
-        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_YOU_DONT_WANT_TO_BUY_IT,TextSize.EM,content,PERCENTAGE_OF_SCREEN_USED);
-        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_YOU_DONT_WANT_TO_BUY_IT_PAR,TextSize.P,content,PERCENTAGE_OF_SCREEN_USED);
-        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_COLLECT_COLOR_GROUPS,TextSize.EM,content,PERCENTAGE_OF_SCREEN_USED);
-        Table colorTable = colorTable();
-
-        content.add(colorTable);
-        content.row();
-        //WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_COLLECT_COLOR_GROUPS_FIRST_PAR,TextSize.EM,content,PERCENTAGE_OF_SCREEN_USED);
-        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_ACTION_CELLS,TextSize.H2,content,PERCENTAGE_OF_SCREEN_USED);
-
-        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_BUILDINGS,TextSize.H1,content,PERCENTAGE_OF_SCREEN_USED);
-        WidgetsFactory.prepareLabelAndAddToTable(Finals.HELP_I_CAN_NOT_PAY_ANYMORE,TextSize.H1,content,PERCENTAGE_OF_SCREEN_USED);
         ScrollPane scrollPane = new ScrollPane(content, skin);
         table.add(scrollPane).expand().fill().pad(10).height(Gdx.graphics.getHeight() * 0.7f);
         table.row();
@@ -128,10 +127,6 @@ public class HelpScreen implements Screen {
     }
 
     private void handleInput() {
-        if (Gdx.input.isKeyJustPressed(Input.Keys.UP)){}
-        else if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN)){
-
-        }
     }
 
     @Override

@@ -45,6 +45,9 @@ public final class Finals {
     public static final String HELP_YOU_DONT_WANT_TO_BUY_IT = "youdontwanttobuyit";
     public static final String HELP_YOU_DONT_WANT_TO_BUY_IT_PAR = "youdontwanttobuyitpar";
     public static final String HELP_COLLECT_COLOR_GROUPS = "helpcollectcolorgroups";
+    public static final String HELP_YOU_OWN_ALL_GROUP = "helpwhenyouhaveallroadsofagroup";
+    public static final String HELP_DOUBLE_RENT = "helpdoublerent";
+    public static final String HELP_BUILD_HOTELS_AND_HOUSES = "helpbuildhousesandhotels";
 
     public static final String HELP_PROPERTIES_DONT_BELONG_TO_ANYBODY_PAR = "propertiesdontbelongtoanybodypar";
     public static final String HELP_ACTION_CELLS = "helpactioncells";
