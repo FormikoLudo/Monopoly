@@ -16,7 +16,7 @@ public class CardView extends Actor {
     FieldElement model;
     public CardView(FieldElement model, ShapeDrawer shapeDrawer){
         this.model = model;
-        this.setSize(100,160);
+        this.setSize(150,210);
         this.shapeDrawer = shapeDrawer;
     }
 
@@ -38,12 +38,45 @@ public class CardView extends Actor {
     }
 
     private void drawDomain(Batch batch, float parentAlpha) {
-        BackgroudColoredActor bgcolor = new BackgroudColoredActor(this.getWidth(),10, Color.RED,shapeDrawer);
+        BackgroudColoredActor bgcolor = new BackgroudColoredActor(this.getWidth(),getHeight()/8, Color.RED,shapeDrawer);
         bgcolor.setPosition(this.getX(),this.getHeight());
         bgcolor.draw(batch,parentAlpha);
         shapeDrawer.filledRectangle(new Rectangle(getX(),getY(),getWidth(),getHeight()),Color.WHITE);
         shapeDrawer.setDefaultLineWidth(5f);
         shapeDrawer.rectangle(new Rectangle(getX(),getY(),getWidth(),getHeight()),Color.BLACK);
+
+        drawHouse(batch,parentAlpha,getX(),getY()+120,false);
+
+        drawHouse(batch,parentAlpha,getX(),getY()+90,false);
+        drawHouse(batch,parentAlpha,getX() + 20,getY()+90,false);
+
+        drawHouse(batch,parentAlpha,getX(),getY()+60,false);
+        drawHouse(batch,parentAlpha,getX() + 20,getY()+60,false);
+        drawHouse(batch,parentAlpha,getX() + 40,getY()+60,false);
+
+
+        drawHouse(batch,parentAlpha,getX(),getY() + 30,false);
+        drawHouse(batch,parentAlpha,getX() + 20,getY() + 30,false);
+        drawHouse(batch,parentAlpha,getX() + 40,getY() + 30,false);
+        drawHouse(batch,parentAlpha,getX() + 60,getY() + 30,false);
+
+        drawHouse(batch,parentAlpha,getX(),getY(),true);
+
         System.out.println("Drawing DOMAIN");
+    }
+
+    public void drawHouse(Batch batch, float parentAlpha, float x, float y, boolean hotel) {
+
+        Color color;
+        if (hotel)
+            color = Color.RED;
+        else
+            color = Color.GREEN;
+
+        shapeDrawer.filledRectangle(x + 10,y + 10,10,10,color);
+        float [] a = {x + 10, y + 20};
+        float [] b = {x + 10 + 10, y + 20};
+        float [] c = {x + 15 , y + 30};
+        shapeDrawer.triangle(a[0],a[1],b[0],b[1],c[0],c[1],color);
     }
 }
