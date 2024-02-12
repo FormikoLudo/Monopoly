@@ -15,11 +15,11 @@ public class BackgroudColoredActor extends Actor {
         this.setColor(bgColor);
         this.setSize(width, height);
         this.shapeDrawer = shapeDrawer; // Pass the ShapeDrawer instance through the constructor or some other method
+
     }
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
-        System.out.println("Drawing actor at " + getX() + ", " + getY() + " with size " + getWidth() + "x" + getHeight());
         shapeDrawer.setDefaultLineWidth(5f);
         shapeDrawer.rectangle(new Rectangle(getX(),getY(),getWidth(),getHeight()),Color.BLACK);
         shapeDrawer.filledRectangle(new Rectangle(getX(),getY(),getWidth(),getHeight()),getColor());

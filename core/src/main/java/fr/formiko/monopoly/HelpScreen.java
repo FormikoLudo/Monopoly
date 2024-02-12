@@ -13,6 +13,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import fr.formiko.model.field.Domain;
+import fr.formiko.model.field.LuxuryTaxe;
 import fr.formiko.utils.Finals;
 import fr.formiko.utils.TextSize;
 import fr.formiko.utils.WidgetsFactory;
@@ -86,6 +88,8 @@ public class HelpScreen implements Screen {
                 content.row();
             }
         }
+        content.row();
+        content.add(new CardView(new Domain("Test",0,0,0,0,0),WidgetsFactory.getShapDrawer()));
         ScrollPane scrollPane = new ScrollPane(content, skin);
         table.add(scrollPane).expand().fill().pad(10).height(Gdx.graphics.getHeight() * 0.7f);
         table.row();
