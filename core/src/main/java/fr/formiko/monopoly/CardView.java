@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import fr.formiko.model.field.Card;
 import fr.formiko.model.field.Domain;
@@ -34,7 +35,7 @@ public class CardView extends Actor {
         System.out.println("canonical name : " + model.getClass().getCanonicalName());
         switch (model.getClass().getCanonicalName().split("\\.")[model.getClass().getCanonicalName().split("\\.").length - 1]) {
             case "Domain":
-                drawDomain(batch,parentAlpha);
+                drawMortgagedView(batch,parentAlpha);
                 break;
             case "LuxuryTaxe":
                 drawLuxuryTaxe(batch,parentAlpha);
@@ -74,6 +75,20 @@ public class CardView extends Actor {
         //drawHouse(batch,parentAlpha,getX() + 15f,getY() + .4f * getHeight(), false);
         System.out.println("Drawing DOMAIN");
 
+    }
+
+    private void drawMortgagedView(Batch batch, float parentAlpha) {
+        switch (model.getClass().getCanonicalName().split("\\.")[model.getClass().getCanonicalName().split("\\.").length - 1]) {
+            case "Domain":
+                drawDomain(batch,parentAlpha);
+                shapeDrawer.setColor(Color.RED);
+                shapeDrawer.line(new Vector2(getX() + 10f,.9f * getHeight()),new Vector2(getX() + .9f * getWidth(),.9f * getHeight()));
+                shapeDrawer.line(new Vector2(getX() + 10f,.7f * getHeight()),new Vector2(getX() + .9f * getWidth(),.7f * getHeight()));
+                //REGULAR_FONT.draw();
+                break;
+            case "LuxuryTaxe":
+                break;
+        }
     }
 
     public void drawHouse(Batch batch, float parentAlpha, float x, float y, boolean hotel) {
