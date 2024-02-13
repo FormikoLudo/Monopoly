@@ -82,8 +82,8 @@ public class CardView extends Actor {
             case "Domain":
                 drawDomain(batch,parentAlpha);
                 shapeDrawer.setColor(Color.RED);
-                shapeDrawer.line(new Vector2(getX() + 10f,.9f * getHeight()),new Vector2(getX() + .9f * getWidth(),.9f * getHeight()));
-                shapeDrawer.line(new Vector2(getX() + 10f,.7f * getHeight()),new Vector2(getX() + .9f * getWidth(),.7f * getHeight()));
+                shapeDrawer.line(new Vector2(getX() + 10f, getY() + .9f * getHeight()),new Vector2(getX() + .9f * getWidth(), getY() + .9f * getHeight()));
+                shapeDrawer.line(new Vector2(getX() + 10f, getY() + .7f * getHeight()),new Vector2(getX() + .9f * getWidth(), getY() + .7f * getHeight()));
                 //REGULAR_FONT.draw();
                 break;
             case "LuxuryTaxe":
