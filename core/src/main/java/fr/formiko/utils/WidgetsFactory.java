@@ -151,4 +151,8 @@ public final class WidgetsFactory {
             schdr = createShapeDrawer(getBatch());
         return schdr;
     }
+
+    public static void disposeResources() {
+        batch.dispose();
+    }
 }

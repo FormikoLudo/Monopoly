@@ -89,7 +89,7 @@ public class HelpScreen implements Screen {
             }
         }
         content.row();
-        content.add(new CardView(new Domain("Test",0,0,0,0,0),WidgetsFactory.getShapDrawer()));
+        content.add(new CardView(new Domain("RUE DE LA PAIX",0,0,0,0,0),WidgetsFactory.getShapDrawer()));
         ScrollPane scrollPane = new ScrollPane(content, skin);
         table.add(scrollPane).expand().fill().pad(10).height(Gdx.graphics.getHeight() * 0.7f);
         table.row();
