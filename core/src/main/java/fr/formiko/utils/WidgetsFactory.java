@@ -4,12 +4,10 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -19,13 +17,14 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import fr.formiko.monopoly.MyButton;
+import fr.formiko.monopoly.RotatedText;
 import space.earlygrey.shapedrawer.ShapeDrawer;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
 
 public final class WidgetsFactory {
-    private static Skin mySkin  = null;
+    public static Skin mySkin  = null;
     private static Batch  batch = null;
     private static ShapeDrawer  schdr = null;
 
@@ -46,7 +45,9 @@ public final class WidgetsFactory {
 
     private WidgetsFactory(){}
 
-
+static {
+        prepareSkin();
+}
 
     private static void prepareSkin(){
         TEXT_FONT = Fonts.getRegularFont(20.f, Color.WHITE);
@@ -153,8 +154,11 @@ public final class WidgetsFactory {
         return schdr;
     }
 
-    public static void drawRotatedText(BitmapFont font, float x, float y) {
-        font.draw(batch,"MORTGAGED",x,y);
+    public static void drawRotatedText(BitmapFont font, String text, float x, float y, Batch batch, float parentAlpha) {
+        System.out.println("BEGIN OF DRAW ROTATED TEXT");
+        RotatedText Rtext = new RotatedText();
+        Rtext.draw(batch,parentAlpha);
+
     }
 
     public static void disposeResources() {

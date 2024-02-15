@@ -22,9 +22,9 @@ import space.earlygrey.shapedrawer.ShapeDrawer;
 import java.awt.*;
 
 public class CardView extends Actor {
-    public static final BitmapFont FONT = Fonts.getBoldFont(20f);
-    public static final BitmapFont REGULAR_FONT = Fonts.getRegularFont(20f);
-    public static final BitmapFont PROPERTY_NAME_FONT = Fonts.getBoldFont(20f);
+    public static final BitmapFont FONT = Fonts.getBoldFont(20f,Color.WHITE);
+    public static final BitmapFont REGULAR_FONT = Fonts.getRegularFont(20f, Color.WHITE);
+    public static final BitmapFont PROPERTY_NAME_FONT = Fonts.getBoldFont(20f, Color.WHITE);
 
     private final ShapeDrawer shapeDrawer;
     FieldElement model;
@@ -39,7 +39,9 @@ public class CardView extends Actor {
         super.draw(batch, parentAlpha);
         switch (Utils.getClassBaseName(model)) {
             case "Domain":
+                System.out.println("Before calling draw domain");
                 drawMortgagedView(batch,parentAlpha);
+                //drawDomain(batch,parentAlpha);
                 break;
             case "LuxuryTaxe":
                 drawLuxuryTaxe(batch,parentAlpha);
@@ -51,6 +53,7 @@ public class CardView extends Actor {
     }
 
     private void drawDomain(Batch batch, float parentAlpha) {
+        System.out.println("Draw DO VIEW");
         shapeDrawer.filledRectangle(getX(),getY(),getWidth(),getHeight(),Color.WHITE);
         shapeDrawer.setDefaultLineWidth(2f);
         shapeDrawer.rectangle(new Rectangle(getX() + 10f,getY() + 10f,getWidth() * .9f,getHeight() * .9f),Color.BLACK);
@@ -78,7 +81,6 @@ public class CardView extends Actor {
         BitmapFont.Glyph glyph = REGULAR_FONT.getData().getGlyph('A');
 
 // Obtenir la région du glyph
-        Texture region = glyph.g;
         TextureRegion textRegion = new TextureRegion(REGULAR_FONT.getRegion());
         batch.draw(textRegion, getX(), getY(), getX(), getY(), getWidth(), getHeight(), 1.f, 1.f, 45);
 
@@ -89,10 +91,22 @@ public class CardView extends Actor {
         switch (Utils.getClassBaseName(model)) {
             case "Domain":
                 drawDomain(batch,parentAlpha);
+                System.out.println("Draw MORTGAGED VIEW");
               break;
             case "LuxuryTaxe":
                 break;
         }
+        shapeDrawer.setColor(Color.RED);
+
+        shapeDrawer.line(
+            new Vector2(getX() + 10f, getY() + .6f * getHeight()),
+            new Vector2(getX() + .93f * getWidth(),
+                getY() + .4f * getHeight())
+        );
+
+        WidgetsFactory.drawRotatedText(REGULAR_FONT,"MORGAGED",getX(),getY(),batch,parentAlpha);
+
+        shapeDrawer.line(new Vector2(getX() + 10f, getY() + .4f * getHeight()),new Vector2(getX() + .9f * getWidth(), getY() + .2f * getHeight()));
     }
 
     public void drawHouse(Batch batch, float parentAlpha, float x, float y, boolean hotel) {

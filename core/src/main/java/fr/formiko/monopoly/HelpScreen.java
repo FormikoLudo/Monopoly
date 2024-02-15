@@ -93,6 +93,7 @@ public class HelpScreen implements Screen {
         content.row();
         Domain d = new Domain("RUE DE LA PAIX",0,0,0,0,0);
         content.add(new CardView(d,WidgetsFactory.getShapDrawer()));
+        System.out.println("After adding card view");
         ScrollPane scrollPane = new ScrollPane(content, skin);
         table.add(scrollPane).expand().fill().pad(10).height(Gdx.graphics.getHeight() * 0.7f);
         table.row();
