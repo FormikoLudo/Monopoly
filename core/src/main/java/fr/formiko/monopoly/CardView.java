@@ -1,9 +1,12 @@
 package fr.formiko.monopoly;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -12,6 +15,8 @@ import fr.formiko.model.field.Domain;
 import fr.formiko.model.field.FieldElement;
 import fr.formiko.model.field.LuxuryTaxe;
 import fr.formiko.utils.Fonts;
+import fr.formiko.utils.Utils;
+import fr.formiko.utils.WidgetsFactory;
 import space.earlygrey.shapedrawer.ShapeDrawer;
 
 import java.awt.*;
@@ -21,7 +26,7 @@ public class CardView extends Actor {
     public static final BitmapFont REGULAR_FONT = Fonts.getRegularFont(20f);
     public static final BitmapFont PROPERTY_NAME_FONT = Fonts.getBoldFont(20f);
 
-    private ShapeDrawer shapeDrawer;
+    private final ShapeDrawer shapeDrawer;
     FieldElement model;
     public CardView(FieldElement model, ShapeDrawer shapeDrawer){
         this.model = model;
@@ -32,8 +37,7 @@ public class CardView extends Actor {
     @Override
     public void draw(Batch batch, float parentAlpha) {
         super.draw(batch, parentAlpha);
-        System.out.println("canonical name : " + model.getClass().getCanonicalName());
-        switch (model.getClass().getCanonicalName().split("\\.")[model.getClass().getCanonicalName().split("\\.").length - 1]) {
+        switch (Utils.getClassBaseName(model)) {
             case "Domain":
                 drawMortgagedView(batch,parentAlpha);
                 break;
@@ -54,7 +58,7 @@ public class CardView extends Actor {
         bgactor.setPosition(getX() + 10f,getY() + .75f * getHeight());
         bgactor.draw(batch,parentAlpha);
 
-        FONT.draw(batch, "TITRE DE PROPRIÉ",getX() + 15f,getY() + .9f * getHeight());
+        FONT.draw(batch, "TITRE DE PROPRIÉTÉ",getX() + 15f,getY() + .9f * getHeight());
         REGULAR_FONT.setColor(Color.WHITE);
         PROPERTY_NAME_FONT.draw(batch, model.getName(),getX() + 15f,getY() + .85f * getHeight());
         REGULAR_FONT.setColor(Color.BLACK);
@@ -69,23 +73,23 @@ public class CardView extends Actor {
         REGULAR_FONT.draw(batch, "Prix des maisons",getX() + 15f,getY() + .25f * getHeight());
         REGULAR_FONT.draw(batch, "Prix d'1 hôtel",getX() + 15f,getY() + .20f * getHeight());
         REGULAR_FONT.draw(batch, "(plus 4 maisons)",getX() + 15f,getY() + .15f * getHeight());
+        REGULAR_FONT.draw(batch, "HYPOTHEQUE",getX(),getY());
+        // Obtenir le glyph du caractère
+        BitmapFont.Glyph glyph = REGULAR_FONT.getData().getGlyph('A');
 
+// Obtenir la région du glyph
+        Texture region = glyph.g;
+        TextureRegion textRegion = new TextureRegion(REGULAR_FONT.getRegion());
+        batch.draw(textRegion, getX(), getY(), getX(), getY(), getWidth(), getHeight(), 1.f, 1.f, 45);
 
-
-        //drawHouse(batch,parentAlpha,getX() + 15f,getY() + .4f * getHeight(), false);
-        System.out.println("Drawing DOMAIN");
 
     }
 
     private void drawMortgagedView(Batch batch, float parentAlpha) {
-        switch (model.getClass().getCanonicalName().split("\\.")[model.getClass().getCanonicalName().split("\\.").length - 1]) {
+        switch (Utils.getClassBaseName(model)) {
             case "Domain":
                 drawDomain(batch,parentAlpha);
-                shapeDrawer.setColor(Color.RED);
-                shapeDrawer.line(new Vector2(getX() + 10f, getY() + .9f * getHeight()),new Vector2(getX() + .9f * getWidth(), getY() + .9f * getHeight()));
-                shapeDrawer.line(new Vector2(getX() + 10f, getY() + .7f * getHeight()),new Vector2(getX() + .9f * getWidth(), getY() + .7f * getHeight()));
-                //REGULAR_FONT.draw();
-                break;
+              break;
             case "LuxuryTaxe":
                 break;
         }

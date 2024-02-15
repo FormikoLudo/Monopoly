@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -150,6 +151,10 @@ public final class WidgetsFactory {
         if (schdr == null)
             schdr = createShapeDrawer(getBatch());
         return schdr;
+    }
+
+    public static void drawRotatedText(BitmapFont font, float x, float y) {
+        font.draw(batch,"MORTGAGED",x,y);
     }
 
     public static void disposeResources() {

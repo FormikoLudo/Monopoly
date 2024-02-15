@@ -13,8 +13,10 @@ import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import fr.formiko.model.field.District;
 import fr.formiko.model.field.Domain;
 import fr.formiko.model.field.LuxuryTaxe;
+import fr.formiko.model.game.Player;
 import fr.formiko.utils.Finals;
 import fr.formiko.utils.TextSize;
 import fr.formiko.utils.WidgetsFactory;
@@ -89,7 +91,8 @@ public class HelpScreen implements Screen {
             }
         }
         content.row();
-        content.add(new CardView(new Domain("RUE DE LA PAIX",0,0,0,0,0),WidgetsFactory.getShapDrawer()));
+        Domain d = new Domain("RUE DE LA PAIX",0,0,0,0,0);
+        content.add(new CardView(d,WidgetsFactory.getShapDrawer()));
         ScrollPane scrollPane = new ScrollPane(content, skin);
         table.add(scrollPane).expand().fill().pad(10).height(Gdx.graphics.getHeight() * 0.7f);
         table.row();
