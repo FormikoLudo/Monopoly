@@ -154,12 +154,11 @@ static {
         return schdr;
     }
 
-    public static void drawRotatedText(BitmapFont font, String text, float x, float y, Batch batch, float parentAlpha) {
-        System.out.println("BEGIN OF DRAW ROTATED TEXT");
-        RotatedText Rtext = new RotatedText();
-        Rtext.draw(batch,parentAlpha);
-
-    }
+    // public static void drawRotatedText(BitmapFont font, String text, float x, float y, Batch batch, float parentAlpha) {
+    //     System.out.println("BEGIN OF DRAW ROTATED TEXT");
+    //     RotatedText Rtext = new RotatedText();
+    //     Rtext.draw(batch,parentAlpha);
+    // }
 
     public static void disposeResources() {
         batch.dispose();

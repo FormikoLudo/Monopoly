@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Group;
 import fr.formiko.model.field.Card;
 import fr.formiko.model.field.Domain;
 import fr.formiko.model.field.FieldElement;
@@ -21,7 +21,7 @@ import space.earlygrey.shapedrawer.ShapeDrawer;
 
 import java.awt.*;
 
-public class CardView extends Actor {
+public class CardView extends Group {
     public static final BitmapFont FONT = Fonts.getBoldFont(20f,Color.WHITE);
     public static final BitmapFont REGULAR_FONT = Fonts.getRegularFont(20f, Color.WHITE);
     public static final BitmapFont PROPERTY_NAME_FONT = Fonts.getBoldFont(20f, Color.WHITE);
@@ -32,21 +32,28 @@ public class CardView extends Actor {
         this.model = model;
         this.setSize(270,380);
         this.shapeDrawer = shapeDrawer;
+        addRotatedLabel();
+    }
+    private void addRotatedLabel () {
+        RotatedText rt = new RotatedText();
+        rt.setPosition(getX(),getY());
+        rt.setRotation(45);
+        addActor(rt);
     }
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
-        super.draw(batch, parentAlpha);
         switch (Utils.getClassBaseName(model)) {
             case "Domain":
-                System.out.println("Before calling draw domain");
-                drawMortgagedView(batch,parentAlpha);
-                //drawDomain(batch,parentAlpha);
-                break;
+            System.out.println("Before calling draw domain");
+            drawMortgagedView(batch,parentAlpha);
+            //drawDomain(batch,parentAlpha);
+            break;
             case "LuxuryTaxe":
-                drawLuxuryTaxe(batch,parentAlpha);
-                break;
+            drawLuxuryTaxe(batch,parentAlpha);
+            break;
         }
+        super.draw(batch, parentAlpha);
     }
 
     private void drawLuxuryTaxe(Batch batch, float parentAlpha) {
@@ -104,7 +111,7 @@ public class CardView extends Actor {
                 getY() + .4f * getHeight())
         );
 
-        WidgetsFactory.drawRotatedText(REGULAR_FONT,"MORGAGED",getX(),getY(),batch,parentAlpha);
+        // WidgetsFactory.drawRotatedText(REGULAR_FONT,"MORGAGED",getX(),getY(),batch,parentAlpha);
 
         shapeDrawer.line(new Vector2(getX() + 10f, getY() + .4f * getHeight()),new Vector2(getX() + .9f * getWidth(), getY() + .2f * getHeight()));
     }
