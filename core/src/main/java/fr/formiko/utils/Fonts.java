@@ -25,12 +25,12 @@ public class Fonts extends BitmapFont {
         ITALIC
     }
 
-    public static BitmapFont getBoldFont(float fontSize) {
-        return getFont(fontSize,FontStyle.BOLD);
+    public static BitmapFont getBoldFont(float fontSize, Color c) {
+        return getFont(fontSize,FontStyle.BOLD, c);
     }
 
-    public static BitmapFont getRegularFont(float fontSize) {
-        return getFont(fontSize,FontStyle.REGULAR);
+    public static BitmapFont getRegularFont(float fontSize, Color c) {
+        return getFont(fontSize,FontStyle.REGULAR, c);
     }
 
     /**
@@ -39,12 +39,12 @@ public class Fonts extends BitmapFont {
      * @param fontSize size of the font.
      * @return the default font.
      */
-    private static BitmapFont getFont(float fontSize, FontStyle style) {
+    private static BitmapFont getFont(float fontSize, FontStyle style, Color c) {
 
         String fontLocation = "fonts/Noto_Sans/NotoSans-" + capitalize(style.toString()) + ".ttf";
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal(fontLocation));
         FreeTypeFontParameter parameter = new FreeTypeFontParameter();
-        parameter.color = Color.WHITE;
+        parameter.color = c;
         parameter.size = (int) fontSize;
         parameter.characters = FreeTypeFontGenerator.DEFAULT_CHARS;// FreeTypeFontGenerator.DEFAULT_CHARS + every char in the translation files.
         BitmapFont bmf = generator.generateFont(parameter);

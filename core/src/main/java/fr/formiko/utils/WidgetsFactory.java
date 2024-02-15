@@ -49,11 +49,11 @@ public final class WidgetsFactory {
 
 
     private static void prepareSkin(){
-        TEXT_FONT = Fonts.getRegularFont(20.f);
-        BOLD_TEXT_FONT = Fonts.getBoldFont(20.f);
-        WIDGET_FONT = Fonts.getRegularFont(40.f);
-        H1_FONT = Fonts.getBoldFont(40.f);
-        H2_FONT = Fonts.getBoldFont(30.f);
+        TEXT_FONT = Fonts.getRegularFont(20.f, Color.WHITE);
+        BOLD_TEXT_FONT = Fonts.getBoldFont(20.f, Color.WHITE);
+        WIDGET_FONT = Fonts.getRegularFont(40.f, Color.WHITE);
+        H1_FONT = Fonts.getBoldFont(40.f, Color.WHITE);
+        H2_FONT = Fonts.getBoldFont(30.f, Color.WHITE);
         mySkin =  new Skin(Gdx.files.internal("ui/uiskin.json"));
 
         mySkin.add(DEFAULT_STYLE, TEXT_FONT);
